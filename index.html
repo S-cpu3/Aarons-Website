@@ -563,7 +563,7 @@ const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isInte
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
 const l3=document.querySelector('.hero-name .line3');
-const txt='& 3x Hacker Hall of Famer.';l3.textContent='';let ci=0;
+const txt='3x Hacker Hall of Famer.';l3.textContent='';let ci=0;
 setTimeout(()=>{const t=setInterval(()=>{l3.textContent+=txt[ci++];if(ci>=txt.length)clearInterval(t);},80);},800);
 </script>
 
