@@ -1,131 +1,225 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aaron Thomas — Independent White Hat Security Researcher</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aaron Thomas - Academic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div>
-        <h1>Aaron Thomas</h1>
-        <p class="subtitle">Security researcher · writer</p>
-        <nav class="links">
-          <a href="#about">About</a>
-          <a href="#blog">Publications & Writeups</a>
-          <a href="#resume">Resume</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-      <div class="mini">
-        <p class="role">Applied Technology Researcher</p>
-        <p class="loc">New York, NY</p>
-      </div>
-    </div>
-  </header>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Aaron Thomas</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research Focus</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <section id="resume" class="card">
-      <h2>Education</h2>
-      <p><strong>New York Institute of Technology</strong> — New York City, NY<br>
-      Bachelors in Computer Science, Masters in Cybersecurity
-
-      <h2>Experience</h2>
-
-      <h3>Applied Technology Researcher — Operation Safe Escape h3>
-      <p><em>Jan 2022 – Present</em></p>
-      <ul>
-        <li>Victimization of domestic abuse often have their phones compromised by stalkerware; worked on detection and remediation approaches and tooling.</li>
-        <li>Built tools to detect and analyze stalkerware and to assist remediation workflows for affected users.</li>
-      </ul>
-
-      <h3>Security Engineer — SwiftControl Systems/h3>
-      <p><em>Sep 2021 – Oct 2023</em></p>
-      <ul>
-        <li>Keeping up to date with critical vulnerabilities and disclosing the exploits to SwiftControl Systems. Assisted with
-the implementation of security controls and ensuring compliance with established security policies and standards. </li>
-        <li>Conduct security assessments, including vulnerability assessments and penetration testing, to identify potential
-security issues. Configure and maintain security tools and technologies, such as firewalls, intrusion detection
-systems, and endpoint protection.</li>
-      </ul>
-
-      <h3>Research Intern — Surveillance Technology Oversight Project (S.T.O.P.)</h3>
-      <p><em>May 2025 – Aug 2025</em></p>
-      <ul>
-        <li>Contributing to research for op-eds about privacy and surveillance issues in New York City. Helped to complete the
-white papers as part of the research team </li>
-        <li> Wrote and contributed to sections of the Life360 and Dating App Surveillance research papers. Collaborated with
-the research team on remote calls over the span of multiple weeks reviewing the research paper. <li>
-      </ul>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Aaron Thomas</h1>
+                <p class="subtitle">Cybersecurity & Surveillance Privacy Researcher</p>
+                <p class="tagline">Master's Student in Cybersecurity at NYIT | Focused on Stalkerware Detection & Digital Rights</p>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+            </div>
+        </div>
     </section>
 
-    <section id="blog" class="card">
-      <h2>Publications & Bug Bounty Writeups</h2>
-
-     <!--  <article class="post">
-        <h3><a href="#pub-1">OAuth Misconfigurations in Multi-tenant Apps</a></h3>
-        <p class="meta">Published March 2026</p>
-        <p>Explains attack scenarios, proof-of-concept, and mitigations for tenant-isolation and OAuth misconfiguration issues.</p>
-      </article>
-
-      <article class="post">
-        <h3><a href="#pub-2">Session Fixation via Subdomain Cookie Leakage</a></h3>
-        <p class="meta">Published January 2026</p>
-        <p>Case study showing cookie scope misconfiguration leading to session fixation and remediation steps.</p>
-      </article> 
-
-      <article class="post">
-        <h3><a href="#pub-3">Rayhunter — Debian Linux, Virtual Machine, Cellular Network</a></h3>
-        <p class="meta">March 2025 – Present</p>
-        <p>Open source tool created by the Electronic Frontier Foundation that runs off an Orbic mobile hotspot that is
-designed to detect cellular spying.Analyzes the traffic in real-time and looks for suspicious events, which could
-include unusual requests like the cell tower trying to downgrade your connection to 2G</p>
-      </article> 
-
-      <p class="note">To add full writeups, create separate HTML or Markdown files (e.g., pub-oauth.html) and link them here.</p>
-    </section> -->
-
-    <section id="projects" class="card">
-      <h2>Selected Projects</h2>
-      <ul>
-        <li><strong>Rayhunter</strong> — Open source tool created by the Electronic Frontier Foundation that runs off an Orbic mobile hotspot that is
-designed to detect cellular spying.Analyzes the traffic in real-time and looks for suspicious events, which could
-include unusual requests like the cell tower trying to downgrade your connection to 2G</li>
-        <li><strong>StealthDetect / Monitor</strong> — Developed an Android app that helps detect stalkerware on a domestic violence victim’s device without notifying
-an abuser. Uses network traffic from a victim’s device to be scanned for stalkerware or spyware</li>
-      </ul>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <img src="profile.jpg" alt="Aaron Thomas" class="profile-pic">
+                <div class="about-text">
+                    <p>I'm a cybersecurity researcher and graduate student at the New York Institute of Technology, pursuing a Master's in Cybersecurity alongside my Bachelor's in Computer Science. My work focuses on protecting vulnerable populations from digital surveillance threats, particularly stalkerware and privacy-invasive technologies.</p>
+                    <p>As Lead Stalkerware Researcher at Operation Safe Escape, I've helped identify stalkerware on over 25 test devices within the first two months of implementation, directly supporting domestic abuse survivors in achieving safe exits. My research bridges the gap between security engineering and human rights advocacy, exploring how cryptography and detection tools can advance digital freedom.</p>
+                    <p>I'm passionate about responsible disclosure, privacy rights, and developing practical security solutions for those who need them most.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="publications" class="card">
-      <h2>Publications</h2>
-      <ul>
-        <li><strong>Big Brother Babysitter: The Carceral Logic of Family Surveillance Apps</strong> — Sept 25th 2025</li>
-        <li><strong>Empowering The Silenced: How Encryption Advances Women's Rights</strong> — July 23rd 2024</li>
-      </ul>
+    <!-- Research Focus Section -->
+    <section id="research" class="research">
+        <div class="container">
+            <h2>Research Focus</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>Stalkerware Detection</h3>
+                    <p>Developing and evaluating tools to detect surveillance malware on mobile devices, particularly for abuse survivors. Integrated SpyGuard project and conducted field testing to improve detection accuracy and investigation speed.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Privacy & Surveillance</h3>
+                    <p>Investigating privacy threats posed by family surveillance apps, location tracking services, and dating app data collection. Contributing to policy research and op-eds on digital surveillance issues in urban communities.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Cellular Network Security</h3>
+                    <p>Analyzing cellular-level surveillance and network attacks, including 2G downgrade exploits and tower-based spying techniques. Researching open-source detection methods for mobile network threats.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Cryptography & Rights</h3>
+                    <p>Exploring how encryption and security technologies can advance women's rights and protect marginalized communities from state and private surveillance.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="bounty" class="card">
-      <h2>Bug Bounty Acknowledgments</h2>
-      <ul>
-        <li><strong>Proton Mail</strong> — Responsibly disclosed a security vulnerability to Proton where an attacker with physical access to a iOS device may
-be able to read emails without FaceID or Passcode Authentication.</li>
-        <li><strong>Brave Browser</strong> —Responsibly disclosed a security vulnerability to Brave where an attacker may be able to bypass the browser lock
-and view the content the last website a user had opened. Appointed into the Brave Hall of Fame in 2026 on HackerOne. </li>
-      </ul>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-list">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Lead Stalkerware Researcher</h3>
+                        <span class="date">Jan 2025 – Present</span>
+                    </div>
+                    <p class="organization">Operation Safe Escape | Remote</p>
+                    <ul>
+                        <li>Integrated the SpyGuard project and wrote comprehensive reports evaluating tool effectiveness for stalkerware detection</li>
+                        <li>Enabled safe-escape teams to identify stalkerware on 25+ test devices within the first two months, significantly cutting investigation time</li>
+                        <li>Increased successful safe-exit outcomes by improving detection accuracy and providing actionable intelligence</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Security Engineer</h3>
+                        <span class="date">Sep 2024 – Oct 2025</span>
+                    </div>
+                    <p class="organization">SwiftControl Systems LLC | New York City, NY</p>
+                    <ul>
+                        <li>Maintained awareness of critical vulnerabilities and coordinated responsible disclosure of exploits to SwiftControl Systems</li>
+                        <li>Assisted with implementation of security controls and ensuring compliance with established security policies and standards</li>
+                        <li>Conducted security assessments including vulnerability assessments and penetration testing to identify potential security issues</li>
+                        <li>Configured and maintained security tools including firewalls, intrusion detection systems, and endpoint protection solutions</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Research Intern</h3>
+                        <span class="date">May 2025 - Aug 2025</span>
+                    </div>
+                    <p class="organization">Surveillance Technology Oversight Project (S.T.O.P.) | New York City, NY</p>
+                    <ul>
+                        <li>Contributed to research for policy op-eds addressing privacy and surveillance issues affecting New York City residents</li>
+                        <li>Authored and contributed sections to the Life360 and Dating App Surveillance white papers</li>
+                        <li>Collaborated with research team across multiple weeks reviewing, refining, and finalizing research findings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="card">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:aaron.thomas@example.com">aaront@wearehackerone.com</a></p>
-    </section>
-  </main>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Rayhunter</h3>
+                    <p class="tech-stack">Debian Linux | Virtual Machine | Cellular Networks</p>
+                    <p class="date-range">March 2025 – Present</p>
+                    <p>Open source tool by the Electronic Frontier Foundation that detects cellular-level spying. Runs on an Orbic mobile hotspot and analyzes network traffic in real-time to identify suspicious events, including unusual requests like cell tower downgrade attempts to 2G networks.</p>
+                </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p>© Aaron Thomas — Security Researcher</p>
-      <p><a href="https://github.com/S-cpu3">GitHub</a> · <a href="#">CV</a></p>
-    </div>
-  </footer>
+                <div class="project-card">
+                    <h3>StealthDetect</h3>
+                    <p class="tech-stack">Malware Detection | VPN | Android</p>
+                    <p class="date-range">Sept 2025 – Present</p>
+                    <p>Android application designed to detect stalkerware on domestic violence victim devices without alerting abusers. Analyzes network traffic patterns to identify stalkerware and spyware threats, providing victims with critical information for safe exit planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2>Publications & Research</h2>
+            <div class="publication-list">
+                <div class="publication-item">
+                    <h4>Big Brother Babysitter: The Carceral Logic of Family Surveillance Apps</h4>
+                    <p class="authors"><strong>Aaron Thomas</strong></p>
+                    <p class="venue"><em>Surveillance Technology Oversight Project | September 25, 2025</em></p>
+                    <p class="abstract">Research examining how family surveillance apps perpetuate surveillance logic historically used for carceral control, with implications for privacy rights and community safety.</p>
+                    <a href="https://www.stopspying.org/big-brother-babysitter/" class="paper-link" target="_blank">Read Article</a>
+                </div>
+
+                <div class="publication-item">
+                    <h4>Empowering The Silenced: How Encryption Advances Women's Rights</h4>
+                    <p class="authors"><strong>Aaron Thomas</strong></p>
+                    <p class="venue"><em>LinkedIn Pulse | July 23, 2024</em></p>
+                    <p class="abstract">An exploration of how cryptographic tools and encryption technologies serve as critical infrastructure for protecting women's rights, privacy, and safety in digital spaces.</p>
+                    <a href="https://www.linkedin.com/pulse/empowering-silenced-how-encryption-advances-womens-rights-thomas–amqvf/" class="paper-link" target="_blank">Read Article</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bug Bounty Section -->
+    <section id="bounty" class="bounty">
+        <div class="container">
+            <h2>Security Contributions & Bug Bounty</h2>
+            <div class="bounty-list">
+                <div class="bounty-item">
+                    <h4>United States Social Security Administration</h4>
+                    <p class="date">April 2026</p>
+                    <p>Responsibly disclosed a critical security vulnerability that could allow attackers to access sensitive information without authentication. Appointed to the Social Security Administration Hacker Hall of Fame on Bugcrowd.</p>
+                </div>
+
+                <div class="bounty-item">
+                    <h4>Brave Browser</h4>
+                    <p class="date">February 2026</p>
+                    <p>Responsibly disclosed a security vulnerability allowing attackers to bypass browser lock and view previously accessed website content. Appointed to the Brave Browser Hacker Hall of Fame on HackerOne.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>New York Institute of Technology</h3>
+                <p class="location">New York City, NY</p>
+                <ul>
+                    <li><strong>Bachelor's Degree in Computer Science</strong></li>
+                    <li><strong>Master's Degree in Cybersecurity</strong> | Expected Graduation: May 2028</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:aaront@wearehackerone.com">aaront@wearehackerone.com</a></p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/aaron-thomas-2a29aa308/" target="_blank">LinkedIn</a>
+                <a href="https://www.stopspying.org" target="_blank">S.T.O.P.</a>
+                <a href="https://www.eff.org" target="_blank">EFF</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Aaron Thomas. All rights reserved.</p>
+    </footer>
 </body>
 </html>
+
