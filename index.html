@@ -642,14 +642,6 @@
     </a>
 </section>
 
-<section id="writing" class="section">
-  <div class="section-header">
-    <div>
-      <div class="label">Fighting Internet Censorship</div>
-      <h2 class="section-title">My Tor Snowflake <span>by the Numbers</span></h2>
-    </div>
-  </div>
-
  <section id="writing" class="section">
   <div class="section-header">
     <div>
@@ -806,6 +798,134 @@
     </div>
     <div class="chart-footer">Data through July 2026 • Peak: April (561.6/day)</div>
   </div>
+   .section {
+  padding: 2rem;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.label {
+  color: #6d4aff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0;
+}
+
+.section-title span {
+  color: #6d4aff;
+}
+
+.chart-container {
+  background: #0f0f0f;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.chart-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bar-item {
+  display: grid;
+  grid-template-columns: 100px 1fr 120px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bar-label {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.bar-wrapper {
+  height: 28px;
+  background: #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: linear-gradient(90deg, #6d4aff, #9c7bff);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  min-width: 50px;
+  transition: width 0.3s ease;
+}
+
+.bar:hover {
+  opacity: 0.85;
+}
+
+.bar-value {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.bar-total {
+  color: #6d4aff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.chart-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #1f1f1f;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.bar.peak-year {
+  background: linear-gradient(90deg, #6d4aff, #8c6bff);
+}
+
+.bar.peak-month {
+  background: linear-gradient(90deg, #ff6b4a, #ffa84a);
+}
+
+@media (max-width: 768px) {
+  .bar-item {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .bar-total {
+    grid-column: 1 / -1;
+    margin-top: 0.25rem;
+  }
+
+  .bar-label {
+    text-align: left;
+  }
+}
    
 </section>
 
