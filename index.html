@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aaron Thomas — Security Researcher | 3x Hacker Hall of Famer </title>
+  <title>Aaron Thomas — Security Researcher | 3x Hacker Hall of Famer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -124,20 +124,6 @@
     }
     .btn-ghost:hover { border-color:var(--sun); color:var(--sun); transform:translateY(-2px); }
 
-    /* TERMINAL */
-    .terminal { background:var(--bg3); border:1px solid var(--border2); border-radius:12px; overflow:hidden; font-family:'Space Mono',monospace; }
-    .term-bar { background:var(--card); padding:12px 16px; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border); }
-    .term-dot { width:10px; height:10px; border-radius:50%; }
-    .term-dot.r{background:#FF5F56;} .term-dot.y{background:#FFBD2E;} .term-dot.g{background:#27C93F;}
-    .term-title { font-size:11px; color:var(--muted); margin-left:8px; }
-    .term-body { padding:20px 24px; font-size:13px; line-height:1.9; }
-    .term-line { display:block; }
-    .term-prompt{color:var(--sun);} .term-cmd{color:var(--text);}
-    .term-key{color:var(--magenta);} .term-val{color:var(--gold);}
-    .term-str{color:var(--blush);} .term-brace{color:var(--dusk);}
-    .term-cursor { display:inline-block; width:8px; height:14px; background:var(--sun); vertical-align:middle; animation:blink 1s step-end infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
-
     /* ABOUT */
     #about { border-top:1px solid var(--border); }
     .about-layout { display:grid; grid-template-columns:1fr 1.2fr; gap:5rem; align-items:start; }
@@ -196,71 +182,148 @@
     .post-row:hover .post-arrow { color:var(--sun); transform:translateX(4px); }
     .writing-cta { margin-top:2.5rem; display:flex; align-items:center; gap:1rem; }
 
-    /* SOCIAL MEDIA */
-    #social { border-top:1px solid var(--border); }
-    .social-platforms { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-
-    .platform-card {
-      background:var(--card); border:1px solid var(--border); border-radius:14px; padding:1.8rem;
-      text-decoration:none; display:block; transition:all .3s; position:relative; overflow:hidden;
-    }
-    .platform-card::after { content:''; position:absolute; inset:0; opacity:0; transition:opacity .3s; border-radius:14px; }
-    .platform-card:hover { transform:translateY(-4px); }
-
-    .platform-card.yt::after  { background:radial-gradient(ellipse at top left,rgba(255,107,107,.13) 0%,transparent 65%); }
-    .platform-card.gh::after  { background:radial-gradient(ellipse at top left,rgba(255,154,92,.11) 0%,transparent 65%); }
-    .platform-card.ss::after  { background:radial-gradient(ellipse at top left,rgba(255,209,102,.11) 0%,transparent 65%); }
-    .platform-card.tw::after  { background:radial-gradient(ellipse at top left,rgba(201,111,216,.11) 0%,transparent 65%); }
-    .platform-card.li::after  { background:radial-gradient(ellipse at top left,rgba(255,154,92,.11) 0%,transparent 65%); }
-    .platform-card.pt::after  { background:radial-gradient(ellipse at top left,rgba(255,143,163,.11) 0%,transparent 65%); }
-    .platform-card:hover::after { opacity:1; }
-
-    .platform-card.yt:hover { border-color:var(--dusk); }
-    .platform-card.gh:hover { border-color:var(--sun); }
-    .platform-card.ss:hover { border-color:var(--gold); }
-    .platform-card.tw:hover { border-color:var(--magenta); }
-    .platform-card.li:hover { border-color:var(--sun); }
-    .platform-card.pt:hover { border-color:var(--blush); }
-
-    .platform-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.2rem; position:relative; z-index:1; }
-    .platform-icon { width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; }
-    .yt-ic { background:rgba(255,107,107,.15); }
-    .gh-ic { background:rgba(255,154,92,.12); }
-    .ss-ic { background:rgba(255,209,102,.12); }
-    .tw-ic { background:rgba(201,111,216,.12); font-size:16px; font-weight:700; color:var(--magenta); font-family:'Syne',sans-serif; }
-    .li-ic { background:rgba(255,154,92,.12); }
-    .pt-ic { background:rgba(255,143,163,.12); }
-
-    .platform-badge { font-family:'Space Mono',monospace; font-size:10px; padding:4px 10px; border-radius:999px; letter-spacing:.06em; }
-    .badge-yt { background:rgba(255,107,107,.15); color:var(--dusk); }
-    .badge-gh { background:rgba(255,154,92,.12); color:var(--sun); }
-    .badge-ss { background:rgba(255,209,102,.12); color:var(--gold); }
-    .badge-tw { background:rgba(201,111,216,.12); color:var(--magenta); }
-    .badge-li { background:rgba(255,154,92,.12); color:var(--sun); }
-    .badge-pt { background:rgba(255,143,163,.12); color:var(--blush); }
-
-    .platform-name { font-size:18px; font-weight:700; color:var(--text); margin-bottom:4px; letter-spacing:-.02em; position:relative; z-index:1; }
-    .platform-handle { font-family:'Space Mono',monospace; font-size:11px; color:var(--faint); margin-bottom:1rem; position:relative; z-index:1; }
-    .platform-desc { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:1.2rem; position:relative; z-index:1; }
-    .platform-link { font-family:'Space Mono',monospace; font-size:11px; color:var(--faint); letter-spacing:.04em; display:flex; align-items:center; gap:6px; transition:color .2s; position:relative; z-index:1; }
-    .platform-card.yt:hover .platform-link { color:var(--dusk); }
-    .platform-card.gh:hover .platform-link { color:var(--sun); }
-    .platform-card.ss:hover .platform-link { color:var(--gold); }
-    .platform-card.tw:hover .platform-link { color:var(--magenta); }
-    .platform-card.li:hover .platform-link { color:var(--sun); }
-    .platform-card.pt:hover .platform-link { color:var(--blush); }
-
-    /* PRODUCTS */
-    #products { border-top:1px solid var(--border); }
+    /* PRODUCTS / HALL OF FAME CARDS */
+    #products, #Bug-Bounty { border-top:1px solid var(--border); }
     .products-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-    .prod-card { background:var(--card); border:1px solid var(--border); border-radius:12px; overflow:hidden; text-decoration:none; display:block; transition:all .3s; }
+    .prod-card { 
+      background:var(--card); 
+      border:1px solid var(--border); 
+      border-radius:12px; 
+      overflow:hidden; 
+      text-decoration:none; 
+      display:block; 
+      transition:all .3s; 
+      width: 240px;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+    }
     .prod-card:hover { border-color:var(--magenta); transform:translateY(-3px); }
-    .prod-cover { height:140px; display:flex; align-items:center; justify-content:center; background:var(--bg3); border-bottom:1px solid var(--border); font-size:40px; position:relative; overflow:hidden; }
+    .prod-cover { 
+      height: 240px; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      background:var(--bg3); 
+      border-bottom:1px solid var(--border); 
+      font-size:40px; 
+      position:relative; 
+      overflow:hidden; 
+    }
     .prod-cover-bg { position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(201,111,216,.15) 0%,transparent 70%); }
-    .prod-body { padding:1.2rem; }
-    .prod-name { font-size:15px; font-weight:700; color:var(--text); margin-bottom:4px; letter-spacing:-.01em; }
+    .prod-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .prod-body { 
+      flex: 1; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: flex-end;
+      padding:1.2rem; 
+    }
+    .prod-name { 
+      font-size:15px; 
+      font-weight:700; 
+      color:var(--text); 
+      margin-bottom:4px; 
+      letter-spacing:-.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .prod-price { font-family:'Space Mono',monospace; font-size:13px; color:var(--magenta); }
     .prod-placeholder { color:var(--faint); font-size:13px; }
+
+    /* TOR CHART STYLES */
+    .chart-container {
+      background: #0f0f0f;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .chart-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .bar-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .bar-item {
+      display: grid;
+      grid-template-columns: 100px 1fr 120px;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .bar-label {
+      color: #9ca3af;
+      font-size: 0.85rem;
+      text-align: right;
+    }
+
+    .bar-wrapper {
+      height: 28px;
+      background: #1a1a1a;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, #6d4aff, #9c7bff);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 0.5rem;
+      min-width: 50px;
+      transition: width 0.3s ease;
+    }
+
+    .bar:hover {
+      opacity: 0.85;
+    }
+
+    .bar-value {
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .bar-total {
+      color: #6d4aff;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .chart-footer {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid #1f1f1f;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    .bar.peak-year {
+      background: linear-gradient(90deg, #6d4aff, #8c6bff);
+    }
+
+    .bar.peak-month {
+      background: linear-gradient(90deg, #ff6b4a, #ffa84a);
+    }
 
     /* CONTACT */
     #contact { border-top:1px solid var(--border); }
@@ -273,8 +336,6 @@
     .socials-grid { display:flex; flex-wrap:wrap; gap:10px; }
     .social-pill { display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:10px 18px; border-radius:999px; border:1px solid var(--border2); color:var(--muted); background:var(--bg3); text-decoration:none; transition:all .2s; }
     .social-pill:hover { color:var(--sun); border-color:var(--sun); background:rgba(255,154,92,.05); }
-    .contact-illustration { background:var(--bg3); border:1px solid var(--border); border-radius:16px; padding:2.5rem; font-family:'Space Mono',monospace; font-size:12px; line-height:2; }
-    .ci-comment{color:var(--faint);} .ci-key{color:var(--magenta);} .ci-val{color:var(--gold);} .ci-str{color:var(--blush);} .ci-bool{color:var(--dusk);} .ci-brace{color:var(--text);}
 
     footer { border-top:1px solid var(--border); padding:2rem 3rem; max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
     .footer-left { font-family:'Space Mono',monospace; font-size:12px; color:var(--faint); }
@@ -290,16 +351,25 @@
       .nav-links { display:none; }
       .section { padding:4rem 1.5rem; }
       .hero-grid { grid-template-columns:1fr; }
-      .terminal { display:none; }
       .about-layout { grid-template-columns:1fr; gap:2.5rem; }
       .projects-grid { grid-template-columns:1fr; }
-      .social-platforms { grid-template-columns:1fr 1fr; }
       .products-grid { grid-template-columns:1fr; }
       .contact-layout { grid-template-columns:1fr; }
       .post-preview-col { display:none; }
       footer { flex-direction:column; gap:12px; text-align:center; }
+      
+      .bar-item {
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: auto auto;
+      }
+      .bar-total {
+        grid-column: 1 / -1;
+        margin-top: 0.25rem;
+      }
+      .bar-label {
+        text-align: left;
+      }
     }
-    @media (max-width:540px) { .social-platforms { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
@@ -314,7 +384,8 @@
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#writing">Articles</a>
-    <a href="#Bug Bounty">Bug Bounty</a>
+    <a href="#Bug-Bounty">Bug Bounty</a>
+    <a href="#tor-charts">Tor Snowflake</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -335,7 +406,6 @@
           <a class="btn-primary" href="#projects">See my work →</a>
           <a class="btn-ghost" href="#contact">Get in touch</a>
         </div>
-        </div>
       </div>
     </div>
   </section>
@@ -352,7 +422,7 @@
         </div>
       </div>
       <div class="fade-up">
-        <p class="about-text">I'm a <strong>Security Researcher</strong> with a strong passion for cybersecurity and digital privacy.  I care about helping others be as secure as possible when online and disclosing vulnerabilities to companies. </p>
+        <p class="about-text">I'm a <strong>Security Researcher</strong> with a strong passion for cybersecurity and digital privacy. I care about helping others be as secure as possible when online and disclosing vulnerabilities to companies.</p>
         <div class="skill-list">
           <span class="skill">JavaScript</span><span class="skill">Bug Bounties</span><span class="skill">Linux</span>
           <span class="skill">Security Research</span><span class="skill">Privacy</span>
@@ -367,43 +437,42 @@
       <a class="view-all" href="https://github.com/s-cpu3" target="_blank">GitHub →</a>
     </div>
     <div class="projects-grid">
-  <a class="proj-card fade-up" href="https://github.com/S-cpu3/SecureCycle" target="_blank">
-    <div class="proj-number">01 / Open Source</div>
-    <div class="proj-title">SecureCycle</div>
-    <div class="proj-desc">SecureCycle is a privacy and security focused mobile app designed for tracking menstrual cycles and storing reproductive health information for women. All data is processed locally on the app and can be protected by biometrics and App PIN. Nobody has access to your health data, not even us. Privacy is a fundamental human right, not a suggestion.</div>
-    <div class="proj-footer"><span class="proj-tag tag-oss">Open Source</span><span class="proj-arrow">↗</span></div>
-  </a>
-  <a class="proj-card fade-up" href="https://github.com/S-cpu3/StealthDetect" target="_blank">
-    <div class="proj-number">02 / Open Source</div>
-    <div class="proj-title">StealthDetect</div>
-    <div class="proj-desc">StealthDetect is a stalkerware detection app for mobile devices that uses network traffic analysis to detect indicators of compromise (IOCs). The app creates a local VPN to intercept DNS queries, comparing them against a bundled threat intelligence database to identify stalkerware.</div>
-    <div class="proj-footer"><span class="proj-tag tag-oss">Open Source</span><span class="proj-arrow">↗</span></div>
-  </a>
-</div>
+      <a class="proj-card fade-up" href="https://github.com/S-cpu3/SecureCycle" target="_blank">
+        <div class="proj-number">01 / Open Source</div>
+        <div class="proj-title">SecureCycle</div>
+        <div class="proj-desc">SecureCycle is a privacy and security focused mobile app designed for tracking menstrual cycles and storing reproductive health information for women. All data is processed locally on the app and can be protected by biometrics and App PIN.</div>
+        <div class="proj-footer"><span class="proj-tag tag-oss">Open Source</span><span class="proj-arrow">↗</span></div>
+      </a>
+      <a class="proj-card fade-up" href="https://github.com/S-cpu3/StealthDetect" target="_blank">
+        <div class="proj-number">02 / Open Source</div>
+        <div class="proj-title">StealthDetect</div>
+        <div class="proj-desc">StealthDetect is a stalkerware detection app for mobile devices that uses network traffic analysis to detect indicators of compromise (IOCs). The app creates a local VPN to intercept DNS queries.</div>
+        <div class="proj-footer"><span class="proj-tag tag-oss">Open Source</span><span class="proj-arrow">↗</span></div>
+      </a>
+    </div>
   </section>
-
 
   <section id="writing" class="section">
     <div class="section-header">
-      <div><div class="label">Writing </div><h2 class="section-title">My Articles, Disclosed Bug Reports <span>& Research Papers </span></h2></div>
+      <div><div class="label">Writing</div><h2 class="section-title">My Articles, Disclosed Bug Reports <span>& Research Papers</span></h2></div>
     </div>
     <div class="posts-stack">
-       <a class="post-row" href="https://medium.com/@aaront_60605/hey-meta-stop-recording-me-your-guide-on-protecting-your-privacy-against-meta-glasses-0183ae08a1b5" target="_blank">
+      <a class="post-row" href="https://medium.com/@aaront_60605/hey-meta-stop-recording-me-your-guide-on-protecting-your-privacy-against-meta-glasses-0183ae08a1b5" target="_blank">
         <span class="post-num">1</span><span class="post-date-col">August 5th 2026</span>
         <span class="post-title-col">Hey Meta, Stop Recording Me: Your Guide on Protecting Your Privacy Against Meta Glasses.</span>
         <span class="post-arrow">→</span>
       </a>
       <a class="post-row" href="https://www.linkedin.com/pulse/phish-looked-like-me-deconstructing-storm-1747s-attack-aaron-thomas--cl0ue/" target="_blank">
         <span class="post-num">2</span><span class="post-date-col">July 29th 2026</span>
-        <span class="post-title-col">The Phish That Looked Like Me: Deconstructing Storm-1747’s Attack Chain</span>
+        <span class="post-title-col">The Phish That Looked Like Me: Deconstructing Storm-1747's Attack Chain</span>
         <span class="post-arrow">→</span>
       </a>
       <a class="post-row" href="https://medium.com/@aaront_60605/peeklist-how-braves-playlist-bypassed-faceid-protection-for-private-tabs-9d1691b077be" target="_blank">
         <span class="post-num">3</span><span class="post-date-col">July 26th 2026</span>
-        <span class="post-title-col">PeekList: How Brave’s Playlist bypassed FaceID Protection for Private Tabs</span>
+        <span class="post-title-col">PeekList: How Brave's Playlist bypassed FaceID Protection for Private Tabs</span>
         <span class="post-arrow">→</span>
       </a>
-       <a class="post-row" href="https://hackerone.com/reports/3693295" target="_blank">
+      <a class="post-row" href="https://hackerone.com/reports/3693295" target="_blank">
         <span class="post-num">4</span><span class="post-date-col">May 28th 2026</span>
         <span class="post-title-col">iOS Brave Playlist "Open in Private Tab" bypasses FaceID requirement for Private Tabs</span>
         <span class="post-arrow">→</span>
@@ -423,513 +492,279 @@
         <span class="post-title-col">Big Brother Babysitter: The Carceral Logic of Family Surveillance Apps</span>
         <span class="post-arrow">→</span>
       </a>
-        </a>
       <a class="post-row" href="https://stopstalkerware.org/2025/05/19/spyguard-vs-stalkerware-detecting-digital-abuse-safely-and-effectively/" target="_blank">
         <span class="post-num">8</span><span class="post-date-col">May 19th 2025</span>
         <span class="post-title-col">SpyGuard vs. Stalkerware: Detecting Digital Abuse Safely and Effectively</span>
-        <span class="post-arrow">→</span> 
+        <span class="post-arrow">→</span>
       </a>
-       </a>
       <a class="post-row" href="https://safeescape.org/cyber-threats-at-home-how-the-airborne-vulnerability-puts-domestic-violence-survivors-at-risk/" target="_blank">
         <span class="post-num">9</span><span class="post-date-col">May 9th 2025</span>
         <span class="post-title-col">Cyber Threats at Home: How the AirBorne Vulnerability Puts Domestic Violence Survivors at Risk</span>
         <span class="post-arrow">→</span>
       </a>
-       </a>
       <a class="post-row" href="https://safeescape.org/stalkerware-threatens-womens-privacy/" target="_blank">
         <span class="post-num">10</span><span class="post-date-col">April 6th 2025</span>
-        <span class="post-title-col">The Abuser in Your Pocket: How Stalkerware Threatens Women’s Privacy</span>
+        <span class="post-title-col">The Abuser in Your Pocket: How Stalkerware Threatens Women's Privacy</span>
         <span class="post-arrow">→</span>
       </a>
-       </a>
       <a class="post-row" href="https://vocal.media/01/encryption-backdoors-threaten-all-of-us" target="_blank">
         <span class="post-num">11</span><span class="post-date-col">October 10th 2024</span>
         <span class="post-title-col">Encryption Backdoors Threaten All of Us</span>
         <span class="post-arrow">→</span>
       </a>
-       </a>
       <a class="post-row" href="https://www.linkedin.com/pulse/empowering-silenced-how-encryption-advances-womens-rights-thomas--amqvf/" target="_blank">
         <span class="post-num">12</span><span class="post-date-col">July 23rd 2024</span>
-        <span class="post-title-col">Empowering The Silenced: How Encryption Advances Women’s Rights</span>
+        <span class="post-title-col">Empowering The Silenced: How Encryption Advances Women's Rights</span>
         <span class="post-arrow">→</span>
       </a>
     </div>
+  </section>
 
-  <style>
-<style>
-  .prod-card{
-    width: 240px;
-    height: 480px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .prod-cover{
-    height: 240px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .prod-cover-bg{
-    position: absolute;
-    inset: 0;
-  }
-
-  .prod-cover span{
-    position: relative;
-    z-index: 1;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
-  .prod-cover img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .prod-body{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-
-  .prod-name{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-</style>
-
-<section id="Bug Bounty" class="section">
-  <div class="section-header">
-    <div>
-      <div class="label">Bug Bounties</div>
-      <h2 class="section-title">Hacker Hall of Fame <span>& Security Acknowledgments</span></h2>
+  <section id="Bug-Bounty" class="section">
+    <div class="section-header">
+      <div><div class="label">Bug Bounties</div><h2 class="section-title">Hacker Hall of Fame <span>& Security Acknowledgments</span></h2></div>
     </div>
-  </div>
-  <div class="products-grid">
-     </a>
-    <a class="prod-card fade-up" href="" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Ff1%2Fe1%2F1d%2Ff1e11d4edb1aa1878e138a004ab833d7.jpg&f=1&nofb=1&ipt=05a007c2e83ea9bca50fa57facc455a26c89d217508a1a1f8392d299ca4f9d23" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Disclosure Soon</div>
-        <div class="prod-price">Fall 2026</div>
-      </div>
-    </a>
-    </a>
-    <a class="prod-card fade-up" href="" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2F736x%2Ff1%2Fe1%2F1d%2Ff1e11d4edb1aa1878e138a004ab833d7.jpg&f=1&nofb=1&ipt=05a007c2e83ea9bca50fa57facc455a26c89d217508a1a1f8392d299ca4f9d23" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Disclosure Soon</div>
-        <div class="prod-price">August 2026</div>
-      </div>
-    </a>
-  <a class="prod-card fade-up" href="https://windscribe.com" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://play-lh.googleusercontent.com/k2TAILEsjpI_9_0lpmRRYiaty4JXOc3RpluhKccooYQ_s5llbvcywrQPxAWi_U_-eRHK9yaH1J5zXKfPqgrMxg=w240-h480-rw" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Thanked by WindscribeVPN</div>
-        <div class="prod-price">July 2026</div>
-      </div>
-    </a>
-    <a class="prod-card fade-up" href="https://ente.com/auth/" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Ftjwi-2r2u67H62elKmU2fVxLPs9_t4DvtzfyFT3NvQpl6qcN3LZjrIBXB6o2ZHpasXFoO8amOJ8_xkV5iYEsf8E&f=1&nofb=1&ipt=1f565c43d0d6d96788fdfda265f1eab1117814b46e2d888e699b4cbc91b48345" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Thanked by Ente Auth</div>
-        <div class="prod-price">July 2026</div>
-      </div>
-    </a>
-
-    <a class="prod-card fade-up" href="https://beliapp.com/" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://play-lh.googleusercontent.com/N1hBiPjuvsvbG_W2xHN6Dqdp-4h7jz8HEWJF1WIdrlsXGrR9b8mGCuSZgOw5h-OyzDgnyU7DgYgoxw8Wkjbwcw=w240-h480-rw" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Thanked by Beli</div>
-        <div class="prod-price">July 2026</div>
-      </div>
-    </a>
-
-    <a class="prod-card fade-up" href="https://signal.org/security" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://play-lh.googleusercontent.com/HXEs85Okatm4_lZMmCaLFk3iXQ6_lrr00i8nsxaqBRSy6VGnsP7F50dKUfrO37Sj0nxtzSjMpKbjgWh6d0PTyEA=w240-h480-rw" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Signal Hacker Hall of Fame</div>
-        <div class="prod-price">May 2026</div>
-      </div>
-    </a>
-
-    <a class="prod-card fade-up" href="https://bugcrowd.com/engagements/ssa-vdp/hall_of_fames" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_the_United_States_Social_Security_Administration.svg/330px-Flag_of_the_United_States_Social_Security_Administration.svg.png" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Social Security Administration Hacker Hall of Fame</div>
-        <div class="prod-price">April 2026</div>
-      </div>
-    </a>
-
-    <a class="prod-card fade-up" href="https://termius.com/" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://play-lh.googleusercontent.com/h0zYNf7cjzKrPw8hrRIvyDxDe_OpikNa9rl0Udjrk-LOo5d23IO5DyXKeRyta1rc12j0Ta60LrvwPkoq2P6e1Q=w240-h480-rw" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Thanked by Termius</div>
-        <div class="prod-price">March 2026</div>
-      </div>
-    </a>
-    
-    <a class="prod-card fade-up" href='https://bugbounty.meta.com/' target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-        <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fmeta%2Fmeta_PNG12.png&f=1&nofb=1&ipt=ecc087799e3c1f30debe9927481c4e0ccd3689555546036887efb806e052b787" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Thanked by Meta</div>
-        <div class="prod-price">March 2026</div>
-      </div>
-    </a>
-
-<a class="prod-card fade-up" href="https://hackerone.com/brave/thanks" target="_blank">
-      <div class="prod-cover">
-        <div class="prod-cover-bg"></div>
-         <span style="position:relative;z-index:1;font-size:42px;">
-          <img src="https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E=w240-h480-rw" />
-        </span>
-      </div>
-      <div class="prod-body">
-        <div class="prod-name">Brave Browser Hacker Hall of Fame</div>
-        <div class="prod-price">Feburary 2026</div>
-      </div>
-    </a>
-</section>
-
- <section id="writing" class="section">
-  <div class="section-header">
-    <div>
-      <div class="label">Fighting Internet Censorship</div>
-      <h2 class="section-title">My Tor Snowflake <span>by the Numbers</span></h2>
+    <div class="products-grid">
+      <a class="prod-card fade-up" href="https://windscribe.com" target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://play-lh.googleusercontent.com/k2TAILEsjpI_9_0lpmRRYiaty4JXOc3RpluhKccooYQ_s5llbvcywrQPxAWi_U_-eRHK9yaH1J5zXKfPqgrMxg=w240-h480-rw" alt="Windscribe" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Thanked by WindscribeVPN</div>
+          <div class="prod-price">July 2026</div>
+        </div>
+      </a>
+      <a class="prod-card fade-up" href="https://ente.com/auth/" target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2Ftjwi-2r2u67H62elKmU2fVxLPs9_t4DvtzfyFT3NvQpl6qcN3LZjrIBXB6o2ZHpasXFoO8amOJ8_xkV5iYEsf8E&f=1&nofb=1&ipt=1f565c43d0d6d96788fdfda265f1eab1117814b46e2d888e699b4cbc91b48345" alt="Ente Auth" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Thanked by Ente Auth</div>
+          <div class="prod-price">July 2026</div>
+        </div>
+      </a>
+      <a class="prod-card fade-up" href="https://beliapp.com/" target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://play-lh.googleusercontent.com/N1hBiPjuvsvbG_W2xHN6Dqdp-4h7jz8HEWJF1WIdrlsXGrR9b8mGCuSZgOw5h-OyzDgnyU7DgYgoxw8Wkjbwcw=w240-h480-rw" alt="Beli" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Thanked by Beli</div>
+          <div class="prod-price">July 2026</div>
+        </div>
+      </a>
+      <a class="prod-card fade-up" href="https://signal.org/security" target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://play-lh.googleusercontent.com/HXEs85Okatm4_lZMmCaLFk3iXQ6_lrr00i8nsxaqBRSy6VGnsP7F50dKUfrO37Sj0nxtzSjMpKbjgWh6d0PTyEA=w240-h480-rw" alt="Signal" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Signal Hacker Hall of Fame</div>
+          <div class="prod-price">May 2026</div>
+        </div>
+      </a>
+      <a class="prod-card fade-up" href="https://bugcrowd.com/engagements/ssa-vdp/hall_of_fames" target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_the_United_States_Social_Security_Administration.svg/330px-Flag_of_the_United_States_Social_Security_Administration.svg.png" alt="SSA" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Social Security Administration Hacker Hall of Fame</div>
+          <div class="prod-price">April 2026</div>
+        </div>
+      </a>
+      <a class="prod-card fade-up" href="https://termius.com/" target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://play-lh.googleusercontent.com/h0zYNf7cjzKrPw8hrRIvyDxDe_OpikNa9rl0Udjrk-LOo5d23IO5DyXKeRyta1rc12j0Ta60LrvwPkoq2P6e1Q=w240-h480-rw" alt="Termius" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Thanked by Termius</div>
+          <div class="prod-price">March 2026</div>
+        </div>
+      </a>
+      <a class="prod-card fade-up" href='https://bugbounty.meta.com/' target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fpngimg.com%2Fuploads%2Fmeta%2Fmeta_PNG12.png&f=1&nofb=1&ipt=ecc087799e3c1f30debe9927481c4e0ccd3689555546036887efb806e052b787" alt="Meta" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Thanked by Meta</div>
+          <div class="prod-price">March 2026</div>
+        </div>
+      </a>
+      <a class="prod-card fade-up" href="https://hackerone.com/brave/thanks" target="_blank">
+        <div class="prod-cover">
+          <div class="prod-cover-bg"></div>
+          <img src="https://play-lh.googleusercontent.com/UBrZnuXGb-QACU0uUdF5r_n5nx5oBbdfPyEbtsr0xXv00RN7rpaTVu3GjLeE90aHFmNlbaCmm8vNcmY0eE98U9E=w240-h480-rw" alt="Brave" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-name">Brave Browser Hacker Hall of Fame</div>
+          <div class="prod-price">February 2026</div>
+        </div>
+      </a>
     </div>
-  </div>
+  </section>
 
-  <!-- 2025 Chart -->
-  <div class="chart-container">
-    <div class="chart-title">2025 - Monthly Totals & Per Day Average</div>
-    <div class="bar-chart">
-      <div class="bar-item">
-        <div class="bar-label">January</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 8%;"><span class="bar-value">21.6</span></div>
-        </div>
-        <div class="bar-total">647 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">February</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 28%;"><span class="bar-value">76</span></div>
-        </div>
-        <div class="bar-total">988 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">March</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 30%;"><span class="bar-value">81</span></div>
-        </div>
-        <div class="bar-total">2,512 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">April</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 38%;"><span class="bar-value">103.9</span></div>
-        </div>
-        <div class="bar-total">3,116 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">May</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 60%;"><span class="bar-value">161.9</span></div>
-        </div>
-        <div class="bar-total">5,019 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">June</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 92%;"><span class="bar-value">248.8</span></div>
-        </div>
-        <div class="bar-total">7,465 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">July</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 87%;"><span class="bar-value">235</span></div>
-        </div>
-        <div class="bar-total">7,284 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">August</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 80%;"><span class="bar-value">217</span></div>
-        </div>
-        <div class="bar-total">6,728 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">September</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 98%;"><span class="bar-value">264</span></div>
-        </div>
-        <div class="bar-total">7,924 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">October</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 49%;"><span class="bar-value">130.9</span></div>
-        </div>
-        <div class="bar-total">4,057 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">November</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 99%;"><span class="bar-value">266.8</span></div>
-        </div>
-        <div class="bar-total">7,471 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">December</div>
-        <div class="bar-wrapper">
-          <div class="bar peak-year" style="width: 100%;"><span class="bar-value">269</span></div>
-        </div>
-        <div class="bar-total">8,339 total</div>
+  <section id="tor-charts" class="section">
+    <div class="section-header">
+      <div>
+        <div class="label">Fighting Internet Censorship</div>
+        <h2 class="section-title">My Tor Snowflake <span>by the Numbers</span></h2>
       </div>
     </div>
-    <div class="chart-footer">2025 Total: 61,550 people helped • 1.4 Terabytes donated to the Tor Network</div>
-  </div>
 
-  <!-- 2026 Chart -->
-  <div class="chart-container">
-    <div class="chart-title">2026 - Monthly Totals & Per Day Average</div>
-    <div class="bar-chart">
-      <div class="bar-item">
-        <div class="bar-label">January</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 82%;"><span class="bar-value">459.4</span></div>
+    <!-- 2025 Chart -->
+    <div class="chart-container">
+      <div class="chart-title">2025 - Monthly Totals & Per Day Average</div>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-label">January</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 8%;"><span class="bar-value">21.6</span></div>
+          </div>
+          <div class="bar-total">647 total</div>
         </div>
-        <div class="bar-total">14,241 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">February</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 76%;"><span class="bar-value">424.9</span></div>
+        <div class="bar-item">
+          <div class="bar-label">February</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 28%;"><span class="bar-value">76</span></div>
+          </div>
+          <div class="bar-total">988 total</div>
         </div>
-        <div class="bar-total">11,898 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">March</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 63%;"><span class="bar-value">354.6</span></div>
+        <div class="bar-item">
+          <div class="bar-label">March</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 30%;"><span class="bar-value">81</span></div>
+          </div>
+          <div class="bar-total">2,512 total</div>
         </div>
-        <div class="bar-total">10,994 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">April</div>
-        <div class="bar-wrapper">
-          <div class="bar peak-month" style="width: 100%;"><span class="bar-value">561.6</span></div>
+        <div class="bar-item">
+          <div class="bar-label">April</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 38%;"><span class="bar-value">103.9</span></div>
+          </div>
+          <div class="bar-total">3,116 total</div>
         </div>
-        <div class="bar-total">16,849 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">May</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 70%;"><span class="bar-value">394.9</span></div>
+        <div class="bar-item">
+          <div class="bar-label">May</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 60%;"><span class="bar-value">161.9</span></div>
+          </div>
+          <div class="bar-total">5,019 total</div>
         </div>
-        <div class="bar-total">12,241 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">June</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 63%;"><span class="bar-value">353.1</span></div>
+        <div class="bar-item">
+          <div class="bar-label">June</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 92%;"><span class="bar-value">248.8</span></div>
+          </div>
+          <div class="bar-total">7,465 total</div>
         </div>
-        <div class="bar-total">10,592 total</div>
-      </div>
-      <div class="bar-item">
-        <div class="bar-label">July</div>
-        <div class="bar-wrapper">
-          <div class="bar" style="width: 55%;"><span class="bar-value">310</span></div>
+        <div class="bar-item">
+          <div class="bar-label">July</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 87%;"><span class="bar-value">235</span></div>
+          </div>
+          <div class="bar-total">7,284 total</div>
         </div>
-        <div class="bar-total">9,609 total</div>
+        <div class="bar-item">
+          <div class="bar-label">August</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 80%;"><span class="bar-value">217</span></div>
+          </div>
+          <div class="bar-total">6,728 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">September</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 98%;"><span class="bar-value">264</span></div>
+          </div>
+          <div class="bar-total">7,924 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">October</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 49%;"><span class="bar-value">130.9</span></div>
+          </div>
+          <div class="bar-total">4,057 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">November</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 99%;"><span class="bar-value">266.8</span></div>
+          </div>
+          <div class="bar-total">7,471 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">December</div>
+          <div class="bar-wrapper">
+            <div class="bar peak-year" style="width: 100%;"><span class="bar-value">269</span></div>
+          </div>
+          <div class="bar-total">8,339 total</div>
+        </div>
       </div>
+      <div class="chart-footer">2025 Total: 61,550 people helped • 1.4 Terabytes donated to the Tor Network</div>
     </div>
-    <div class="chart-footer">Data through July 2026 • Peak: April (561.6/day)</div>
-  </div>
-    
-<style> 
-    .section {
-  padding: 2rem;
-}
 
-.section-header {
-  margin-bottom: 2rem;
-}
-
-.label {
-  color: #6d4aff;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-}
-
-.section-title {
-  font-size: 2rem;
-  color: #fff;
-  margin: 0;
-}
-
-.section-title span {
-  color: #6d4aff;
-}
-
-.chart-container {
-  background: #0f0f0f;
-  border-radius: 12px;
-  padding: 2rem;
-  margin: 2rem 0;
-}
-
-.chart-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.bar-chart {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.bar-item {
-  display: grid;
-  grid-template-columns: 100px 1fr 120px;
-  align-items: center;
-  gap: 1rem;
-}
-
-.bar-label {
-  color: #9ca3af;
-  font-size: 0.85rem;
-  text-align: right;
-}
-
-.bar-wrapper {
-  height: 28px;
-  background: #1a1a1a;
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.bar {
-  height: 100%;
-  background: linear-gradient(90deg, #6d4aff, #9c7bff);
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 0.5rem;
-  min-width: 50px;
-  transition: width 0.3s ease;
-}
-
-.bar:hover {
-  opacity: 0.85;
-}
-
-.bar-value {
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.bar-total {
-  color: #6d4aff;
-  font-size: 0.85rem;
-  font-weight: 600;
-}
-
-.chart-footer {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid #1f1f1f;
-  text-align: center;
-  color: #9ca3af;
-  font-size: 0.9rem;
-}
-
-.bar.peak-year {
-  background: linear-gradient(90deg, #6d4aff, #8c6bff);
-}
-
-.bar.peak-month {
-  background: linear-gradient(90deg, #ff6b4a, #ffa84a);
-}
-
-@media (max-width: 768px) {
-  .bar-item {
-    grid-template-columns: 80px 1fr;
-    grid-template-rows: auto auto;
-  }
-
-  .bar-total {
-    grid-column: 1 / -1;
-    margin-top: 0.25rem;
-  }
-
-  .bar-label {
-    text-align: left;
-  }
-}
- <style> 
-   </section>
+    <!-- 2026 Chart -->
+    <div class="chart-container">
+      <div class="chart-title">2026 - Monthly Totals & Per Day Average</div>
+      <div class="bar-chart">
+        <div class="bar-item">
+          <div class="bar-label">January</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 82%;"><span class="bar-value">459.4</span></div>
+          </div>
+          <div class="bar-total">14,241 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">February</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 76%;"><span class="bar-value">424.9</span></div>
+          </div>
+          <div class="bar-total">11,898 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">March</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 63%;"><span class="bar-value">354.6</span></div>
+          </div>
+          <div class="bar-total">10,994 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">April</div>
+          <div class="bar-wrapper">
+            <div class="bar peak-month" style="width: 100%;"><span class="bar-value">561.6</span></div>
+          </div>
+          <div class="bar-total">16,849 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">May</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 70%;"><span class="bar-value">394.9</span></div>
+          </div>
+          <div class="bar-total">12,241 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">June</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 63%;"><span class="bar-value">353.1</span></div>
+          </div>
+          <div class="bar-total">10,592 total</div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label">July</div>
+          <div class="bar-wrapper">
+            <div class="bar" style="width: 55%;"><span class="bar-value">310</span></div>
+          </div>
+          <div class="bar-total">9,609 total</div>
+        </div>
+      </div>
+      <div class="chart-footer">Data through July 2026 • Peak: April (561.6/day)</div>
+    </div>
+  </section>
 
   <section id="contact" class="section">
     <div class="contact-layout">
@@ -944,13 +779,15 @@
           <a class="social-pill" href="https://hackerone.com/aaront" target="_blank">HackerOne</a>
           <a class="social-pill" href="https://bugcrowd.com/h/Aarontom" target="_blank">BugCrowd</a>
           <a class="social-pill" href="https://bsky.app/profile/aarontom5.bsky.social" target="_blank">Bluesky</a>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <div class="footer-left">© 2026 Aaron Thomas </div>
+  <div class="footer-left">© 2026 Aaron Thomas</div>
   <div class="footer-right">
     <a href="https://github.com/s-cpu3" target="_blank">GitHub</a>
   </div>
