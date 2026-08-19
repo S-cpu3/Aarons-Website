@@ -519,6 +519,83 @@
       </a>
     </div>
   </section>
+<style>
+  /* HALL OF FAME CARD STYLES */
+#Bug-Bounty .products-grid { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 16px; 
+  justify-content: center; 
+}
+
+#Bug-Bounty .prod-card {
+  width: 240px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+#Bug-Bounty .prod-card:hover {
+  border-color: var(--magenta);
+  transform: translateY(-3px);
+}
+
+#Bug-Bounty .prod-cover {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+}
+
+#Bug-Bounty .prod-cover-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(201,111,216,.15) 0%, transparent 70%);
+}
+
+#Bug-Bounty .prod-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#Bug-Bounty .prod-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.2rem;
+}
+
+#Bug-Bounty .prod-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#Bug-Bounty .prod-price {
+  font-family: 'Space Mono', monospace;
+  font-size: 13px;
+  color: var(--magenta);
+}
+  
+</style>
 
   <section id="Bug-Bounty" class="section">
     <div class="section-header">
