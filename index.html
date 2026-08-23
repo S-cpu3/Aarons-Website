@@ -597,11 +597,10 @@
     </div>
   </section>
 <style>
-}
   .products-grid { 
   display: flex; 
   flex-wrap: wrap; 
-  gap: 0px;  /* Changed from 16px */
+  gap: 0px;
   justify-content: center; 
 }
  .prod-card{
@@ -645,6 +644,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
 </style>
 
   <section id="Bug-Bounty" class="section">
@@ -661,6 +661,7 @@
           <div class="prod-name">Public Disclosure Soon</div>
           <div class="prod-price">Fall 2026</div>
         </div>
+       </a>
        <a class="prod-card fade-up" href="The Vendor has requested that vulnerability info remain confidential" target="_blank">
         <div class="prod-cover">
           <div class="prod-cover-bg"></div>
@@ -670,6 +671,7 @@
           <div class="prod-name">Public Disclosure Soon</div>
           <div class="prod-price">August 2026</div>
         </div>
+      </a>
       <a class="prod-card fade-up" href="https://windscribe.com" target="_blank">
         <div class="prod-cover">
           <div class="prod-cover-bg"></div>
@@ -761,21 +763,22 @@
       </div>
     </div>
 
-    <!-- All-Time Total Stat - Animated Counter (NEW!) -->
+    <!-- All-Time Total Connections Stat -->
     <div class="all-time-stat">
       <div class="stat-icon">🌐</div>
       <div class="stat-content">
         <div class="stat-label">All-Time Tor Snowflake Connections</div>
-        <div class="stat-number" data-target="153264">0</div>
+        <div class="stat-number" data-target="153264" data-is-decimal="false">0</div>
         <div class="stat-sublabel">People helped worldwide and still counting!</div>
       </div>
     </div>
-    
-     <div class="all-time-stat">
+
+    <!-- Total Bandwidth Donated Stat -->
+    <div class="all-time-stat">
       <div class="stat-icon">🛜</div>
       <div class="stat-content">
         <div class="stat-label">Total Bandwidth Donated to the Tor Project</div>
-        <div class="stat-number" data-target="2.77 Terabytes">0</div>
+        <div class="stat-number" data-target="2.77" data-is-decimal="true" data-unit=" Terabytes">0</div>
       </div>
     </div>
 
@@ -986,50 +989,64 @@ const l3=document.querySelector('.hero-name .line3');
 const txt='4x Hacker Hall of Famer.';l3.textContent='';let ci=0;
 setTimeout(()=>{const t=setInterval(()=>{l3.textContent+=txt[ci++];if(ci>=txt.length)clearInterval(t);},80);},800);
 
-// Animate the all-time counter - MOBILE FIX
-function animateCounter(element, target, duration = 3000) {
+// Animate counters - handles both integers and decimals, works on mobile
+function animateCounter(element, target, isDecimal, unit, duration = 3000) {
   const start = 0;
   const startTime = performance.now();
-  
+  const numericTarget = parseFloat(target);
+
   function update(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
     const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-    const current = Math.floor(start + (target - start) * easeProgress);
-    element.textContent = current.toLocaleString();
+    const current = start + numericTarget * easeProgress;
+
+    if (isDecimal) {
+      element.textContent = current.toFixed(2) + (unit || '');
+    } else {
+      element.textContent = Math.floor(current).toLocaleString() + (unit || '');
+    }
+
     if (progress < 1) {
       requestAnimationFrame(update);
+    } else {
+      if (isDecimal) {
+        element.textContent = numericTarget.toFixed(2) + (unit || '');
+      } else {
+        element.textContent = numericTarget.toLocaleString() + (unit || '');
+      }
     }
   }
   requestAnimationFrame(update);
 }
 
-// Setup counter with fallback for mobile
-const statNumber = document.querySelector('.stat-number[data-target]');
-if (statNumber) {
+// Setup ALL counters with fallback for mobile
+document.querySelectorAll('.stat-number[data-target]').forEach(statNumber => {
   const torSection = document.getElementById('tor-charts');
-  const target = parseInt(statNumber.getAttribute('data-target'));
-  
+  const target = statNumber.getAttribute('data-target');
+  const isDecimal = statNumber.getAttribute('data-is-decimal') === 'true';
+  const unit = statNumber.getAttribute('data-unit') || '';
+
   if (torSection) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && statNumber.textContent === '0') {
-          animateCounter(statNumber, target, 3000);
+          animateCounter(statNumber, target, isDecimal, unit, 3000);
           observer.disconnect();
         }
       });
-    }, { threshold: 0.1 }); // Lower threshold for mobile
-    
+    }, { threshold: 0.1 });
+
     observer.observe(torSection);
   }
-  
+
   // Fallback: trigger after 1 second if still at 0 (mobile workaround)
   setTimeout(() => {
     if (statNumber.textContent === '0') {
-      animateCounter(statNumber, target, 3000);
+      animateCounter(statNumber, target, isDecimal, unit, 3000);
     }
   }, 1000);
-}
+});
 </script>
 
 </body>
