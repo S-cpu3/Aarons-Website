@@ -820,7 +820,7 @@
         <div class="bar-item">
           <div class="bar-label">July</div>
           <div class="bar-wrapper">
-            <div class="bar" style="width: 87%;"><span class="bar-value">235</sp`n></div>
+            <div class="bar" style="width: 87%;"><span class="bar-value">235</span></div>
           </div>
           <div class="bar-total">7,284 total</div>
         </div>
@@ -978,7 +978,7 @@ const l3=document.querySelector('.hero-name .line3');
 const txt='4x Hacker Hall of Famer.';l3.textContent='';let ci=0;
 setTimeout(()=>{const t=setInterval(()=>{l3.textContent+=txt[ci++];if(ci>=txt.length)clearInterval(t);},80);},800);
 
-// Animate the all-time counter (NEW!)
+// Animate the all-time counter - MOBILE FIX
 function animateCounter(element, target, duration = 3000) {
   const start = 0;
   const startTime = performance.now();
@@ -996,19 +996,31 @@ function animateCounter(element, target, duration = 3000) {
   requestAnimationFrame(update);
 }
 
-const torSection = document.getElementById('tor-charts');
+// Setup counter with fallback for mobile
 const statNumber = document.querySelector('.stat-number[data-target]');
-if (torSection && statNumber) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const target = parseInt(statNumber.getAttribute('data-target'));
-        animateCounter(statNumber, target, 3000);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  observer.observe(torSection);
+if (statNumber) {
+  const torSection = document.getElementById('tor-charts');
+  const target = parseInt(statNumber.getAttribute('data-target'));
+  
+  if (torSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && statNumber.textContent === '0') {
+          animateCounter(statNumber, target, 3000);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.1 }); // Lower threshold for mobile
+    
+    observer.observe(torSection);
+  }
+  
+  // Fallback: trigger after 1 second if still at 0 (mobile workaround)
+  setTimeout(() => {
+    if (statNumber.textContent === '0') {
+      animateCounter(statNumber, target, 3000);
+    }
+  }, 1000);
 }
 </script>
 
