@@ -237,6 +237,76 @@
     .prod-price { font-family:'Space Mono',monospace; font-size:13px; color:var(--magenta); }
     .prod-placeholder { color:var(--faint); font-size:13px; }
 
+    /* ALL-TIME STAT BOX */
+    .all-time-stat {
+      background: linear-gradient(135deg, rgba(109,74,255,0.15) 0%, rgba(109,74,255,0.05) 100%);
+      border: 1px solid rgba(109,74,255,0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0 3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .all-time-stat .stat-icon {
+      font-size: 3rem;
+      flex-shrink: 0;
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(109,74,255,0)); }
+      50% { transform: scale(1.1); filter: drop-shadow(0 0 20px rgba(109,74,255,0.6)); }
+    }
+
+    .all-time-stat .stat-content {
+      flex: 1;
+    }
+
+    .all-time-stat .stat-label {
+      font-size: 1rem;
+      color: #9ca3af;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .all-time-stat .stat-number {
+      font-family: 'Space Mono', monospace;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #6d4aff;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #6d4aff, #9c7bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .all-time-stat .stat-sublabel {
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .all-time-stat {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+      }
+      
+      .all-time-stat .stat-icon {
+        font-size: 2.5rem;
+      }
+      
+      .all-time-stat .stat-number {
+        font-size: 3rem;
+      }
+    }
+
     /* TOR CHART STYLES */
     .chart-container {
       background: #0f0f0f;
@@ -691,6 +761,16 @@
       </div>
     </div>
 
+    <!-- All-Time Total Stat - Animated Counter (NEW!) -->
+    <div class="all-time-stat">
+      <div class="stat-icon">🌐</div>
+      <div class="stat-content">
+        <div class="stat-label">All-Time Tor Snowflake Connections</div>
+        <div class="stat-number" data-target="153264">0</div>
+        <div class="stat-sublabel">People helped worldwide</div>
+      </div>
+    </div>
+
     <!-- 2025 Chart -->
     <div class="chart-container">
       <div class="chart-title">2025 - Per Day Average & Monthly Totals</div>
@@ -897,6 +977,39 @@ document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 const l3=document.querySelector('.hero-name .line3');
 const txt='4x Hacker Hall of Famer.';l3.textContent='';let ci=0;
 setTimeout(()=>{const t=setInterval(()=>{l3.textContent+=txt[ci++];if(ci>=txt.length)clearInterval(t);},80);},800);
+
+// Animate the all-time counter (NEW!)
+function animateCounter(element, target, duration = 3000) {
+  const start = 0;
+  const startTime = performance.now();
+  
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+    const current = Math.floor(start + (target - start) * easeProgress);
+    element.textContent = current.toLocaleString();
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+const torSection = document.getElementById('tor-charts');
+const statNumber = document.querySelector('.stat-number[data-target]');
+if (torSection && statNumber) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(statNumber.getAttribute('data-target'));
+        animateCounter(statNumber, target, 3000);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  observer.observe(torSection);
+}
 </script>
 
 </body>
