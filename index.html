@@ -418,7 +418,8 @@
 
     @media (max-width:860px) {
       nav { padding:0 1.5rem; }
-      .nav-links { display:none; }
+      .nav-links { gap:1rem; }  /* Reduced gap to fit on small screens */
+      .nav-links a { font-size:10px; }  /* Smaller text */
       .section { padding:4rem 1.5rem; }
       .hero-grid { grid-template-columns:1fr; }
       .about-layout { grid-template-columns:1fr; gap:2.5rem; }
