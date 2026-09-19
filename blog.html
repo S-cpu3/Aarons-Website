@@ -165,11 +165,7 @@
 <nav>
   <a class="nav-logo" href="index.html">Aaron<span>Thomas</span></a>
   <div class="nav-links">
-    <a href="index.html#about">About</a>
-    <a href="index.html#projects">Projects</a>
-    <a href="index.html#writing">Articles</a>
-    <a href="blog.html">Blog Post</a>
-    <a href="index.html#contact">Contact</a>
+    <a href="peaklist.html#about">PeekList: How Brave’s Playlist bypassed FaceID Protection for Private Tabs</a>
   </div>
 </nav>
 
@@ -185,7 +181,7 @@
         <span class="blog-category">Security Research</span>
       </div>
       <h1 class="blog-title">My Blog</h1>
-      <p class="blog-excerpt">Zero-day vulnerabilities represent one of the most critical challenges in cybersecurity. In this blog, I'll show my vulnerability findings!</p>
+      <p class="blog-excerpt">Zero-day vulnerabilities represent one of the most critical challenges in cybersecurity. In this blog, I'll show my different vulnerability findings!</p>
     </article>
 
     <div class="blog-hero-image fade-up">
@@ -194,99 +190,6 @@
         <div style="font-family: 'Space Mono', monospace; color: #C96FD8; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;">Security Research</div>
       </div>
     </div>
-
-    <div class="blog-content fade-up">
-    <h1 class="blog-title">PeekList: How Brave’s Playlist bypassed FaceID Protection for Private Tabs</h1>
-
-      <p>Summary: Brave for iOS lets you lock Private Tabs behind Face ID or a device passcode. That protection can be completely bypassed using the built-in Brave Playlist feature. Adding any video or audio to your Playlist and then selecting “Open in a New Private Tab” from the long-press menu opens a Private Tab with zero authentication prompt even when Face ID/Passcode protection is enabled. This means an attacker with brief physical access to an unlocked device could view a victim’s Private Tab content without ever being asked to authenticate. The issue was reported to Brave via HackerOne and has since been addressed.</p>
-
-      <h2>The Discovery Process</h2>
-
-      <p>Brave Playlist is a separate feature that lets a user save audio or video (for example, a YouTube link) for offline-style playback inside the browser. Playlist items support a long-press context menu with several actions, one of which is “Open in a New Private Tab.” That action opens the link directly in a Private Tab, but it does so through a different code path than the normal Private Tab entry point, and that path does not check whether Face ID/Passcode protection is enabled.</p>
-
-
-      <h3>The Fix.</h3>
-
-      <p>Brave’s patch wraps the Playlist’s “open in new tab” delegate so that, before a private tab is actually opened, it checks whether Private Tab lock is enabled and the user isn’t already in a private session — and if so, gates the tab open behind askForLocalAuthentication (Face ID/Passcode) before proceeding:</p>
-
-<pre><code># Brave's fix for the Peeklist bypass 
-import requests
-
-pplayer: player,
-      delegate: .init(
-        openTabURL: { [weak browserController] url, isPrivate in
-          guard let browserController else { return }
-          let isPrivate = Preferences.Privacy.privateBrowsingOnly.value ? true : isPrivate
-          let openTab: () -> Void = {
-            browserController.dismiss(animated: true)
-            browserController.openURLInNewTab(
-              url,
-              isPrivate: isPrivate,
-              isPrivileged: false
-            )
-          }
-          if isPrivate,
-            !browserController.privateBrowsingManager.isPrivateBrowsing,
-            Preferences.Privacy.privateBrowsingLock.value
-          {
-            browserController.askForLocalAuthentication { success, _ in
-              if success {
-                openTab()
-              }
-            }
-          } else {
-            openTab()
-          }
-        },
-        onDismissal: { [weak self, weak player] in
-          guard let self else { return }</code></pre>
-
-      <h3>4. Exploitation Testing</h3>
-      <p>If I find a crash or anomalous behavior, the next step is determining if it's actually exploitable. Can it lead to remote code execution, privilege escalation, data exfiltration, or circumvention of security controls?</p>
-
-      <h2>Responsible Disclosure: Why It Matters</h2>
-
-      <p>Discovering a vulnerability is just half the battle. Here's the timeline I follow:</p>
-
-      <ol>
-        <li><strong>Initial report</strong>: Submit a detailed report via official channels (HackerOne, BugCrowd, security@ email)</li>
-        <li><strong>48-hour follow-up</strong>: Ensure the report was received and understood</li>
-        <li><strong>30-day check-in</strong>: Discuss progress if no acknowledgment received</li>
-        <li><strong>90-day deadline</strong>: Coordinate public disclosure only after a patch is available</li>
-      </ol>
-
-      <h2>Final Thoughts</h2>
-
-      <p>Security research isn't just about finding bugs—it's about making the internet safer for everyone. Stay curious, stay ethical, and remember that behind every line of code is a person who trusts you to protect them.</p>
-    </div>
-
-    <div class="blog-tags fade-up">
-      <div class="blog-tags-label">Topics</div>
-      <div class="tags-cloud">
-        <a class="tag-pill" href="#">Zero-Day</a>
-        <a class="tag-pill" href="#">Vulnerability Research</a>
-        <a class="tag-pill" href="#">Bug Bounty</a>
-        <a class="tag-pill" href="#">Responsible Disclosure</a>
-        <a class="tag-pill" href="#">Privacy</a>
-      </div>
-    </div>
-
-    <div class="blog-share fade-up">
-      <span class="share-label">Share This Article!</span>
-      </div>
-    </div>
-      </a>
-    </nav>
-  </section>
-
-</main>
-
-<footer>
-  <div class="footer-left">© 2026 Aaron Thomas</div>
-  <div class="footer-right">
-    <a href="index.html">Back to Home</a>
-  </div>
-</footer>
 
 <script>
 const cursor = document.getElementById('cursor');
