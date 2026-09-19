@@ -182,11 +182,10 @@
           <div class="author-avatar">AT</div>
           <span>Aaron Thomas</span>
         </div>
-        <span class="blog-date">September 15, 2026</span>
         <span class="blog-category">Security Research</span>
       </div>
-      <h1 class="blog-title">Understanding Zero-Day Vulnerabilities: A Practical Guide for Security Researchers</h1>
-      <p class="blog-excerpt">Zero-day vulnerabilities represent one of the most critical challenges in cybersecurity. In this deep dive, I'll walk through what they are, how researchers discover them, and why responsible disclosure matters more than ever.</p>
+      <h1 class="blog-title">My Blog</h1>
+      <p class="blog-excerpt">Zero-day vulnerabilities represent one of the most critical challenges in cybersecurity. In this blog, I'll show my vulnerability findings!</p>
     </article>
 
     <div class="blog-hero-image fade-up">
@@ -197,52 +196,50 @@
     </div>
 
     <div class="blog-content fade-up">
-      <p>In the world of cybersecurity, few terms carry as much weight—and intrigue—as <strong>zero-day vulnerability</strong>. These hidden flaws can sit undetected in software for months or even years, waiting for someone to find them before malicious actors exploit them.</p>
+    <h1 class="blog-title">PeekList: How Brave’s Playlist bypassed FaceID Protection for Private Tabs</h1>
 
-      <h2>What Exactly Is a Zero-Day?</h2>
-
-      <p>A zero-day vulnerability is a software flaw that developers are unaware of at the time it's discovered. The term "zero-day" refers to the fact that the vendor has had zero days to fix the issue before it becomes public knowledge or gets exploited.</p>
-
-      <blockquote>
-        "The window between discovery and patch is where the real danger lies. Responsible disclosure closes that window before attackers can walk through it."
-      </blockquote>
-
-      <h3>How Zero-Days Differ from Regular Vulnerabilities</h3>
-
-      <ul>
-        <li><strong>Regular vulnerabilities:</strong> Known to vendors, often have patches available, CVE IDs assigned</li>
-        <li><strong>Zero-day vulnerabilities:</strong> Unknown to vendors, no patch exists, actively exploitable or dormant</li>
-        <li><strong>N-day vulnerabilities:</strong> Patch exists but hasn't been applied yet</li>
-      </ul>
+      <p>Summary: Brave for iOS lets you lock Private Tabs behind Face ID or a device passcode. That protection can be completely bypassed using the built-in Brave Playlist feature. Adding any video or audio to your Playlist and then selecting “Open in a New Private Tab” from the long-press menu opens a Private Tab with zero authentication prompt even when Face ID/Passcode protection is enabled. This means an attacker with brief physical access to an unlocked device could view a victim’s Private Tab content without ever being asked to authenticate. The issue was reported to Brave via HackerOne and has since been addressed.</p>
 
       <h2>The Discovery Process</h2>
 
-      <p>Finding zero-days requires a combination of technical skills, creativity, and persistence:</p>
+      <p>Brave Playlist is a separate feature that lets a user save audio or video (for example, a YouTube link) for offline-style playback inside the browser. Playlist items support a long-press context menu with several actions, one of which is “Open in a New Private Tab.” That action opens the link directly in a Private Tab, but it does so through a different code path than the normal Private Tab entry point, and that path does not check whether Face ID/Passcode protection is enabled.</p>
 
-      <h3>1. Reconnaissance and Target Selection</h3>
-      <p>I typically focus on applications that handle sensitive data—privacy tools, messaging apps, browsers, and authentication systems. These are high-value targets where even minor vulnerabilities can have significant impact.</p>
 
-      <h3>2. Static Analysis</h3>
-      <ul>
-        <li>Reviewing source code (when available) for suspicious patterns</li>
-        <li>Analyzing compiled binaries using disassemblers</li>
-        <li>Checking for insecure API calls or hardcoded credentials</li>
-        <li>Using tools like Ghidra, IDA Pro, and Binary Ninja</li>
-      </ul>
+      <h3>The Fix.</h3>
 
-      <h3>3. Dynamic Analysis and Fuzzing</h3>
+      <p>Brave’s patch wraps the Playlist’s “open in new tab” delegate so that, before a private tab is actually opened, it checks whether Private Tab lock is enabled and the user isn’t already in a private session — and if so, gates the tab open behind askForLocalAuthentication (Face ID/Passcode) before proceeding:</p>
 
-      <p>This is where things get exciting. I use automated fuzzing tools to throw unexpected inputs at applications and watch for crashes:</p>
-
-<pre><code># Example: Simple HTTP fuzzing script
+<pre><code># Brave's fix for the Peeklist bypass 
 import requests
 
-payloads = ['&lt;script&gt;alert(1)&lt;/script&gt;', "' OR '1'='1", '../etc/passwd']
-
-for payload in payloads:
-    response = requests.get(f'https://target.com/search?q={payload}')
-    if response.status_code != 200:
-        print(f'Interesting response: {payload}')</code></pre>
+pplayer: player,
+      delegate: .init(
+        openTabURL: { [weak browserController] url, isPrivate in
+          guard let browserController else { return }
+          let isPrivate = Preferences.Privacy.privateBrowsingOnly.value ? true : isPrivate
+          let openTab: () -> Void = {
+            browserController.dismiss(animated: true)
+            browserController.openURLInNewTab(
+              url,
+              isPrivate: isPrivate,
+              isPrivileged: false
+            )
+          }
+          if isPrivate,
+            !browserController.privateBrowsingManager.isPrivateBrowsing,
+            Preferences.Privacy.privateBrowsingLock.value
+          {
+            browserController.askForLocalAuthentication { success, _ in
+              if success {
+                openTab()
+              }
+            }
+          } else {
+            openTab()
+          }
+        },
+        onDismissal: { [weak self, weak player] in
+          guard let self else { return }</code></pre>
 
       <h3>4. Exploitation Testing</h3>
       <p>If I find a crash or anomalous behavior, the next step is determining if it's actually exploitable. Can it lead to remote code execution, privilege escalation, data exfiltration, or circumvention of security controls?</p>
