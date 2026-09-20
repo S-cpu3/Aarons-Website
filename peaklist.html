@@ -179,7 +179,7 @@ An attacker with physical access to an unlocked iPhone running Brave may be able
 
       <p>Brave's patch wraps the Playlist's "open in new tab" delegate so that, before a private tab is actually opened, it checks whether Private Tab lock is enabled and the user isn't already in a private session — and if so, gates the tab open behind askForLocalAuthentication (Face ID/Passcode) before proceeding. The openTab() closure that actually dismisses the player and calls openURLInNewTab is no longer invoked directly. It's only reached through the conditional: if the destination tab is private, the browser isn't already in a private browsing session, and the user has privateBrowsingLock enabled, the tab open is deferred until askForLocalAuthentication returns success — only then does openTab() fire. Previously, openURLInNewTab was called unconditionally from the Playlist delegate with no authentication gate at all, which is exactly the code path this report exploited.</p>
 
-<pre><code>pplayer: player,
+<pre><code>player: player,
       delegate: .init(
         openTabURL: { [weak browserController] url, isPrivate in
           guard let browserController else { return }
@@ -216,7 +216,11 @@ An attacker with physical access to an unlocked iPhone running Brave may be able
         <li><strong>April 27th 2026</strong>: Brave's Team pushes the fix into Brave Nightly</li>
         <li><strong>April 27th 2026</strong>: Brave pays out a bounty of $250 saying that the bug is medium as attack requires physical access</li>
         <li><strong>April 27th 2026</strong>: I request public disclosure of this report</li>
-        <li><strong>May 28th 2026</strong>: My report is made public. Vulnerability is confirmed fixed in stable release channel.</li>
+        <li><strong>April 27th 2026</strong>: Brave agrees to disclose once its in the release channel.</li>
+        <li><strong>April 28th 2026</strong>: I ask if my report will be assigned a CVE</li>
+        <li><strong>May 19th 2026</strong>: Follow up on a request for CVE for this report.</li>
+        <li><strong>May 25th 2026</strong>: I can confirm issue has been addressed in the 1.90 update and request disclosure</li>
+        <li><strong>May 28th 2026</strong>: My report is made public and no CVE is given. Vulnerability is confirmed fixed by Brave and is in stable release channel.</li>
       </ol>
 
       <h2>Final Thoughts</h2>
