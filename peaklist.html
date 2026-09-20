@@ -175,7 +175,7 @@ An attacker with physical access to an unlocked iPhone running Brave may be able
 
       <h3>The Fix</h3>
 
-      <p>Brave's patch wraps the Playlist's "open in new tab" delegate so that, before a private tab is actually opened, it checks whether Private Tab lock is enabled and the user isn't already in a private session — and if so, gates the tab open behind askForLocalAuthentication (Face ID/Passcode) before proceeding:</p>
+      <p>Brave's patch wraps the Playlist's "open in new tab" delegate so that, before a private tab is actually opened, it checks whether Private Tab lock is enabled and the user isn't already in a private session — and if so, gates the tab open behind askForLocalAuthentication (Face ID/Passcode) before proceeding. The openTab() closure that actually dismisses the player and calls openURLInNewTab is no longer invoked directly. It's only reached through the conditional: if the destination tab is private, the browser isn't already in a private browsing session, and the user has privateBrowsingLock enabled, the tab open is deferred until askForLocalAuthentication returns success — only then does openTab() fire. Previously, openURLInNewTab was called unconditionally from the Playlist delegate with no authentication gate at all, which is exactly the code path this report exploited.</p>
 
 <pre><code>pplayer: player,
       delegate: .init(
