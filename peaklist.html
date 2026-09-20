@@ -206,22 +206,23 @@ An attacker with physical access to an unlocked iPhone running Brave may be able
         onDismissal: { [weak self, weak player] in
           guard let self else { return }</code></pre>
 
-      <h2>Responsible Disclosure: Why It Matters</h2>
-
-      <p>Discovering a vulnerability is just half the battle. Here's the timeline I follow:</p>
+      <h2>Responsible Disclosure Timeline</h2>
 
       <ol>
-        <li><strong>Initial report</strong>: Submit a detailed report via official channels (HackerOne, BugCrowd, security@ email)</li>
-        <li><strong>48-hour follow-up</strong>: Ensure the report was received and understood</li>
-        <li><strong>30-day check-in</strong>: Discuss progress if no acknowledgment received</li>
-        <li><strong>90-day deadline</strong>: Coordinate public disclosure only after a patch is available</li>
+        <li><strong>April 24th 2026</strong>: I submitted a detailed report of the bypass through Brave's HackerOne Program</li>
+        <li><strong>April 24th 2026</strong>: Brave's triage team confirms they could reproduce the bug</li>
+        <li><strong>April 27th 2026</strong>: Brave's Team pushes the fix into Brave Nightly</li>
+        <li><strong>April 27th 2026</strong>: Brave pays out a bounty of $250 saying that the bug is medium as attack requires physical access</li>
+        <li><strong>April 27th 2026</strong>: I request public disclosure of this report</li>
+        <li><strong>May 28th 2026</strong>: My report is made public. Vulnerability is confirmed fixed in stable release channel.</li>
       </ol>
 
       <h2>Final Thoughts</h2>
 
       <p>A protection setting is only as strong as its weakest entry point. Brave’s Face ID/Passcode lock for Private Tabs was solid when Private Tabs were opened normally, but a secondary feature Playlist offered a side door that skipped the check entirely. Brave fixed the issue by extending the same authentication requirement to the Playlist “Open in a New Private Tab” action closing the bypass. Big thank you to the Brave Team for taking my report seriously! :D
 
-Link to Report: https://hackerone.com/reports/3693295</p>
+Link to Report: https://hackerone.com/reports/3693295
+      info sec writeup: https://infosecwriteups.com/peeklist-how-braves-playlist-bypassed-faceid-protection-for-private-tabs-9d1691b077be</p>
     </div>
 
     <div class="blog-tags fade-up">
