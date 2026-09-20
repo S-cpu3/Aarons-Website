@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Understanding Zero-Day Vulnerabilities — Aaron Thomas</title>
+  <title>PeekList: How Brave's Playlist bypassed FaceID — Aaron Thomas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -24,8 +24,6 @@
       --sun2:   #1E3A8A;
       --dusk:   #F5EEE8;
       --magenta:#C96FD8;
-      --gold:   #1E3A8A;
-      --blush:  #F5EEE8;
       --r: 10px;
     }
 
@@ -86,25 +84,13 @@
 
     .section { max-width:1100px; margin:0 auto; padding:6rem 3rem; }
 
-    .label {
-      display:inline-flex; align-items:center; gap:8px;
-      font-family:'Space Mono',monospace; font-size:11px;
-      color:var(--sun); letter-spacing:.1em; text-transform:uppercase; margin-bottom:2rem;
-    }
-    .label::before { content:''; display:block; width:24px; height:1px; background:var(--sun); }
-
     /* BLOG POST STYLES */
-    #blog-post { border-top:1px solid var(--border); }
-    .blog-header { max-width: 800px; margin: 0 auto; text-align: center; padding: 4rem 0 3rem; }
     .blog-meta { display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
     .blog-author { display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 12px; color: var(--muted); }
     .author-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sun); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--bg); }
     .blog-date { font-family: 'Space Mono', monospace; font-size: 12px; color: var(--faint); }
     .blog-category { font-family: 'Space Mono', monospace; font-size: 11px; padding: 4px 12px; border-radius: 999px; background: rgba(201,111,216,.12); color: var(--magenta); letter-spacing: .06em; text-transform: uppercase; }
-    .blog-title { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 2rem; color: var(--text); letter-spacing: -0.02em; }
-    .blog-excerpt { font-size: 18px; color: var(--muted); line-height: 1.8; max-width: 700px; margin: 0 auto 3rem; }
-    .blog-hero-image { max-width: 1000px; margin: 0 auto 4rem; border-radius: 12px; overflow: hidden; background: var(--card); border: 1px solid var(--border); }
-    .blog-hero-placeholder { background: var(--bg3); padding: 6rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .blog-title { font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text); letter-spacing: -0.02em; text-align: center; }
     .blog-content { max-width: 720px; margin: 0 auto; font-size: 17px; line-height: 1.9; color: var(--muted); }
     .blog-content p { margin-bottom: 1.8rem; }
     .blog-content h2 { font-size: 28px; font-weight: 700; color: var(--text); margin: 3rem 0 1.5rem; letter-spacing: -0.01em; }
@@ -127,12 +113,6 @@
     .share-buttons { display: flex; gap: 10px; }
     .share-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border2); background: var(--bg3); display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: all .2s; }
     .share-btn:hover { border-color: var(--sun); color: var(--sun); background: rgba(255,154,92,.05); }
-    .blog-nav { max-width: 720px; margin: 4rem auto 0; display: flex; justify-content: space-between; gap: 2rem; }
-    .nav-article { flex: 1; padding: 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; transition: all .2s; }
-    .nav-article:hover { border-color: var(--sun); transform: translateY(-2px); }
-    .nav-article.next { text-align: right; }
-    .nav-label { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 0.5rem; }
-    .nav-title { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.4; }
 
     footer { border-top:1px solid var(--border); padding:2rem 3rem; max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
     .footer-left { font-family:'Space Mono',monospace; font-size:12px; color:var(--faint); }
@@ -145,41 +125,61 @@
 
     @media (max-width:860px) {
       nav { padding:0 1.5rem; }
-      .nav-links { gap:1rem; }  /* Reduced gap to fit on small screens */
-      .nav-links a { font-size:10px; }  /* Smaller text */
+      .nav-links { gap:1rem; flex-wrap: wrap; }
+      .nav-links a { font-size:10px; }
       .section { padding:4rem 1.5rem; }
       footer { flex-direction:column; gap:12px; text-align:center; }
-      .blog-nav { flex-direction: column; }
-      .nav-article.next { text-align: left; }
       .blog-share { flex-direction: column; gap: 1rem; text-align: center; }
-      .blog-hero-image { margin: 0 auto 3rem; }
     }
   </style>
 </head>
 <body>
- <div class="blog-content fade-up">
-    <h1 class="blog-title">PeekList: How Brave’s Playlist bypassed FaceID Protection for Private Tabs</h1>
 
-      <p>Summary: Brave for iOS lets you lock Private Tabs behind Face ID or a device passcode. That protection can be completely bypassed using the built-in Brave Playlist feature. Adding any video or audio to your Playlist and then selecting “Open in a New Private Tab” from the long-press menu opens a Private Tab with zero authentication prompt even when Face ID/Passcode protection is enabled. This means an attacker with brief physical access to an unlocked device could view a victim’s Private Tab content without ever being asked to authenticate. The issue was reported to Brave via HackerOne and has since been addressed.</p>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="canvas"></canvas>
+
+<nav>
+  <a class="nav-logo" href="index.html">Aaron<span>Thomas</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#writing">Articles</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <section class="section">
+
+    <div class="blog-meta fade-up">
+      <div class="blog-author">
+        <div class="author-avatar">AT</div>
+        <span>Aaron Thomas</span>
+      </div>
+      <span class="blog-date">July 26, 2026</span>
+      <span class="blog-category">Vulnerability Disclosure</span>
+    </div>
+
+    <div class="blog-content fade-up">
+      <h1 class="blog-title">PeekList: How Brave's Playlist bypassed FaceID Protection for Private Tabs</h1>
+
+      <p>Summary: Brave for iOS lets you lock Private Tabs behind Face ID or a device passcode. That protection can be completely bypassed using the built-in Brave Playlist feature. Adding any video or audio to your Playlist and then selecting "Open in a New Private Tab" from the long-press menu opens a Private Tab with zero authentication prompt even when Face ID/Passcode protection is enabled. This means an attacker with brief physical access to an unlocked device could view a victim's Private Tab content without ever being asked to authenticate. The issue was reported to Brave via HackerOne and has since been addressed.</p>
 
       <h2>The Discovery Process</h2>
 
-      <p>Brave Playlist is a separate feature that lets a user save audio or video (for example, a YouTube link) for offline-style playback inside the browser. Playlist items support a long-press context menu with several actions, one of which is “Open in a New Private Tab.” That action opens the link directly in a Private Tab, but it does so through a different code path than the normal Private Tab entry point, and that path does not check whether Face ID/Passcode protection is enabled.</p>
+      <p>Brave Playlist is a separate feature that lets a user save audio or video (for example, a YouTube link) for offline-style playback inside the browser. Playlist items support a long-press context menu with several actions, one of which is "Open in a New Private Tab." That action opens the link directly in a Private Tab, but it does so through a different code path than the normal Private Tab entry point, and that path does not check whether Face ID/Passcode protection is enabled.</p>
 
+      <h3>The Fix</h3>
 
-      <h3>The Fix.</h3>
+      <p>Brave's patch wraps the Playlist's "open in new tab" delegate so that, before a private tab is actually opened, it checks whether Private Tab lock is enabled and the user isn't already in a private session — and if so, gates the tab open behind askForLocalAuthentication (Face ID/Passcode) before proceeding:</p>
 
-      <p>Brave’s patch wraps the Playlist’s “open in new tab” delegate so that, before a private tab is actually opened, it checks whether Private Tab lock is enabled and the user isn’t already in a private session — and if so, gates the tab open behind askForLocalAuthentication (Face ID/Passcode) before proceeding:</p>
-
-<pre><code># Brave's fix for the Peeklist bypass 
-import requests
-
-pplayer: player,
+<pre><code>pplayer: player,
       delegate: .init(
         openTabURL: { [weak browserController] url, isPrivate in
           guard let browserController else { return }
           let isPrivate = Preferences.Privacy.privateBrowsingOnly.value ? true : isPrivate
-          let openTab: () -> Void = {
+          let openTab: () -&gt; Void = {
             browserController.dismiss(animated: true)
             browserController.openURLInNewTab(
               url,
@@ -203,9 +203,6 @@ pplayer: player,
         onDismissal: { [weak self, weak player] in
           guard let self else { return }</code></pre>
 
-      <h3>4. Exploitation Testing</h3>
-      <p>If I find a crash or anomalous behavior, the next step is determining if it's actually exploitable. Can it lead to remote code execution, privilege escalation, data exfiltration, or circumvention of security controls?</p>
-
       <h2>Responsible Disclosure: Why It Matters</h2>
 
       <p>Discovering a vulnerability is just half the battle. Here's the timeline I follow:</p>
@@ -225,22 +222,25 @@ pplayer: player,
     <div class="blog-tags fade-up">
       <div class="blog-tags-label">Topics</div>
       <div class="tags-cloud">
-        <a class="tag-pill" href="#">Zero-Day</a>
+        <a class="tag-pill" href="#">Brave</a>
+        <a class="tag-pill" href="#">iOS</a>
+        <a class="tag-pill" href="#">FaceID Bypass</a>
         <a class="tag-pill" href="#">Vulnerability Research</a>
-        <a class="tag-pill" href="#">Bug Bounty</a>
-        <a class="tag-pill" href="#">Responsible Disclosure</a>
         <a class="tag-pill" href="#">Privacy</a>
       </div>
     </div>
 
     <div class="blog-share fade-up">
       <span class="share-label">Share This Article!</span>
+      <div class="share-buttons">
+        <a class="share-btn" href="#" title="Share on Twitter/X">𝕏</a>
+        <a class="share-btn" href="#" title="Share on LinkedIn">in</a>
+        <a class="share-btn" href="#" title="Copy Link">📋</a>
+        <a class="share-btn" href="#" title="Share via Email">✉️</a>
       </div>
     </div>
-      </a>
-    </nav>
-  </section>
 
+  </section>
 </main>
 
 <footer>
