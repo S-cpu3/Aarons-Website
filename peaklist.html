@@ -168,7 +168,29 @@
 
       <h2>The Discovery Process</h2>
 
-      <p>Brave Playlist is a separate feature that lets a user save audio or video (for example, a YouTube link) for offline-style playback inside the browser. Playlist items support a long-press context menu with several actions, one of which is "Open in a New Private Tab." That action opens the link directly in a Private Tab, but it does so through a different code path than the normal Private Tab entry point, and that path does not check whether Face ID/Passcode protection is enabled.</p>
+      <p>Brave Playlist is a separate feature that lets a user save audio or video (for example, a YouTube link) for offline-style playback inside the browser. Playlist items support a long-press context menu with several actions, one of which is "Open in a New Private Tab." That action opens the link directly in a Private Tab, but it does so through a different code path than the normal Private Tab entry point, and that path does not check whether Face ID/Passcode protection is enabled.
+Affected Environment
+App: Brave Browser for iOS
+Version tested: 1.88
+iOS version tested: 26.4.2
+Feature: Brave Playlist → Private Tab Face ID/Passcode protection
+Steps To Reproduce:
+Step 1: Enable FaceID Protection for Private Tabs and Keep Private Tabs in Brave Settings
+
+Step 2: Open Private Tabs and browse any websites
+
+Step 3: Exit out of Private Tabs and add any song or audio to your Brave Playlist. (For this PoC, I used a Youtube video)
+
+Step 4: Enter your Brave Playlist and go to the song you just added.
+
+Step 5: Tap and hold the song until a dropdown menu appears.
+
+Step 6: Tap on the option to “Open in a New Private Tab”
+
+The Private Tab will now open immediately. No Face ID prompt or no passcode prompt, nothing standing between the attacker and the private session. A user would have the false sense of security that nobody can access the content of their private tabs session.
+
+Impact
+An attacker with physical access to an unlocked iPhone running Brave may be able to use this Playlist bypass to gain access into the user’s Private Tabs, defeating the entire purpose of the Face ID/Passcode setting. This is exactly the kind of “shoulder surf” or “phone left on the table for thirty seconds” scenario the protection exists to prevent, and the Playlist menu quietly gives an attacker a way around it.</p>
 
       <h3>The Fix</h3>
 
