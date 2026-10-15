@@ -966,6 +966,133 @@
     </div>
   <div class="chart-footer">Data through September 2026 • Total: 102,676 people helped</div>
 </div>    
+
+  <!-- ===== Recommendations Section ===== -->
+<section id="recommendations" class="rec-section">
+  <style>
+    .rec-section {
+      --rec-bg: #0f1117;
+      --rec-card: #181b24;
+      --rec-border: #2a2e3b;
+      --rec-text: #e6e8ee;
+      --rec-muted: #9aa0ae;
+      --rec-accent: #4f9cf9;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--rec-bg);
+      color: var(--rec-text);
+      padding: 4rem 1.5rem;
+    }
+    .rec-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .rec-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      color: var(--rec-accent);
+      margin: 0 0 0.5rem;
+    }
+    .rec-title {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin: 0 0 0.75rem;
+    }
+    .rec-intro {
+      color: var(--rec-muted);
+      max-width: 640px;
+      margin: 0 0 2.5rem;
+      line-height: 1.6;
+    }
+    .rec-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+    .rec-card {
+      background: var(--rec-card);
+      border: 1px solid var(--rec-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .rec-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--rec-accent);
+    }
+    .rec-quote {
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--rec-text);
+      margin: 0 0 1.25rem;
+      flex-grow: 1;
+    }
+    .rec-author {
+      font-weight: 600;
+      margin: 0;
+    }
+    .rec-role {
+      font-size: 0.875rem;
+      color: var(--rec-muted);
+      margin: 0.2rem 0 0;
+    }
+    .rec-link {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--rec-accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .rec-link:hover {
+      text-decoration: underline;
+    }
+    .rec-link:focus-visible {
+      outline: 2px solid var(--rec-accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rec-card { transition: none; }
+      .rec-card:hover { transform: none; }
+    }
+  </style>
+
+  <div class="rec-inner">
+    <p class="rec-eyebrow">Recommendations</p>
+    <h2 class="rec-title">What others say about my work!</h2>
+    <p class="rec-intro">
+      Kind words from colleagues, collaborators, and professionals I've worked with on privacy and security projects.
+    </p>
+
+    <div class="rec-grid">
+
+      <article class="rec-card">
+        <p class="rec-quote">"In the security industry, there is often significant confusion around risk, impact, and realistic threat assessment. Aaron stands out for his ability to clearly communicate the vulnerabilities he discovers, the threat models they align with, and their genuine business and security impact. Rather than relying on fear, uncertainty, and doubt (FUD), he provides balanced, evidence-based guidance that helps organisations make informed decisions.
+
+While finding vulnerabilities is never ideal, Aaron has a talent for presenting security issues in a way that is clear, actionable, and easy to prioritise. His pragmatic approach to risk assessment and communication makes him a highly valuable security professional and trusted advisor."</p>
+        <p class="rec-author">Zoë Rose</p>
+        <p class="rec-role">CSIRT Security Operations / Development Senior Manager EMEA at Canon EMEA </p>
+      </article>
+
+      <article class="rec-card">
+        <p class="rec-quote">"Replace this with a second recommendation. Focus on how you worked together or what the outcome was."</p>
+        <p class="rec-author">Full Name</p>
+        <p class="rec-role">Title, Company</p>
+        <a class="rec-link" href="https://example.com" target="_blank" rel="noopener noreferrer">View source →</a>
+      </article>
+
+      <article class="rec-card">
+        <p class="rec-quote">"Replace this with a third recommendation. Short and specific works best."</p>
+        <p class="rec-author">Full Name</p>
+        <p class="rec-role">Title, Organization</p>
+        <a class="rec-link" href="https://example.com" target="_blank" rel="noopener noreferrer">View source →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+<!-- ===== End Recommendations Section ===== -->
   </section>
   <section id="contact" class="section">
     <div class="contact-layout">
