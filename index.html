@@ -776,11 +776,20 @@
       </a>
     </div>
   </section>
-
-  <style>
-  .cred-wrap { font-family: var(--font-body, system-ui, -apple-system, sans-serif); padding: 8px 0; }
+ <style>
+  .cred-wrap {
+    font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+  }
   .cred-card {
-    position: relative; max-width: 640px; border-radius: 14px; padding: 22px 24px;
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    border-radius: 14px;
+    padding: 22px 24px;
     background: linear-gradient(145deg, rgba(56,189,248,0.08), rgba(168,85,247,0.08));
     border: 1px solid rgba(56,189,248,0.35);
     box-shadow: 0 8px 30px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
