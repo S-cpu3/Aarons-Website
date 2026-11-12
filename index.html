@@ -1035,7 +1035,156 @@
           <div class="bar-total">8,020 total</div>
         </div>
   <div class="chart-footer">Data through November 10th 2026 • Total: 110,994 people helped</div>
-</div>    
+</div>  
+
+  <!-- ===== Censorship Event Timeline ===== -->
+<style>
+  .censor-timeline {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    margin-top: 3rem;
+  }
+  .censor-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.78rem;
+    color: #38bdf8;
+    margin: 0 0 0.5rem;
+  }
+  .censor-title { font-size: clamp(1.5rem, 2.5vw, 2rem); margin: 0 0 0.75rem; }
+  .censor-intro {
+    color: #9aa0ae;
+    max-width: 680px;
+    line-height: 1.6;
+    margin: 0 0 2rem;
+    font-size: 0.95rem;
+  }
+  .censor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+  .censor-card {
+    background: #181b24;
+    border: 1px solid #2a2e3b;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .censor-card:hover { transform: translateY(-3px); border-color: #38bdf8; }
+  .censor-date-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7dd3fc, #c4b5fd);
+    color: #0c4a6e;
+    margin-bottom: 0.75rem;
+  }
+  .censor-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; color: #e6e8ee; }
+  .censor-card p { color: #9aa0ae; line-height: 1.6; margin: 0 0 1.25rem; font-size: 0.9rem; }
+  .censor-helped {
+    border-top: 1px solid #2a2e3b;
+    padding-top: 1rem;
+  }
+  .censor-helped .num {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #38bdf8;
+    display: block;
+  }
+  .censor-helped .lbl {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6b7280;
+  }
+  .censor-note {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: #6b7280;
+    line-height: 1.6;
+    max-width: 720px;
+  }
+  .censor-src { color: #7dd3fc; text-decoration: none; }
+  .censor-src:hover { text-decoration: underline; }
+  @media (prefers-reduced-motion: reduce) {
+    .censor-card { transition: none; }
+    .censor-card:hover { transform: none; }
+  }
+</style>
+
+<div class="censor-timeline">
+  <p class="censor-eyebrow">Snowflake Impact During Major Blackouts</p>
+  <h2 class="censor-title">Connections During Major <span style="color:#38bdf8;">Censorship Events</span></h2>
+  <p class="censor-intro">
+    Overlaying my monthly connection totals with major internet shutdowns reported
+    by NetBlocks, Access Now, and international press. Each card shows the total
+    people my proxy helped during the months overlapping that event.
+  </p>
+
+  <div class="censor-grid">
+
+    <article class="censor-card">
+      <span class="censor-date-badge">Jan 8 – May 2026</span>
+      <h3>🇮🇷 Iran Nationwide Blackout</h3>
+      <p>
+        Authorities cut internet access on January 8, 2026 amid nationwide
+        anti-government protests, then imposed a second blackout when U.S. and
+        Israeli strikes began February 28. Roughly 90 million people were cut
+        off for ~90 days — one of the world's longest national shutdowns —
+        before access was partially restored in late May.
+      </p>
+      <div class="censor-helped">
+        <span class="num">66,223</span>
+        <span class="lbl">People helped during that time (Jan–May 2026)</span>
+      </div>
+    </article>
+
+    <article class="censor-card">
+      <span class="censor-date-badge">Jan – Mar 2026</span>
+      <h3>🇷🇺 Russia Escalating Mobile Blackouts</h3>
+      <p>
+        A piecemeal, opaque shutdown campaign: escalating mobile internet
+        blackouts across cities and provinces, new blocks on Telegram, and a
+        full mobile shutdown in central Moscow — disruptions analysts
+        compared to Iran's approach.
+      </p>
+      <div class="censor-helped">
+        <span class="num">37,133</span>
+        <span class="lbl">People helped during that time (Jan–Mar 2026)</span>
+      </div>
+    </article>
+
+    <article class="censor-card">
+      <span class="censor-date-badge">Ongoing, 2024 – 2026</span>
+      <h3>🌍 Indefinite Shutdown Zones</h3>
+      <p>
+        Chronic, prolonged shutdowns with no end in sight — Myanmar's junta-run
+        "internet dead zone," repeated disconnection in Tigray, Ethiopia,
+        plus Annobón, Gaza, and Sudan — documented by the #KeepItOn coalition.
+      </p>
+      <div class="censor-helped">
+        <span class="num">61,550</span>
+        <span class="lbl">People helped across all of 2025</span>
+      </div>
+    </article>
+
+  </div>
+
+  <p class="censor-note">
+    ℹ️ Correlation note: my proxy stats don't include per-country breakdowns, so these
+    pairings connect overall connection volume with the timing of each event rather than
+    attributing individual connections to a country. Sources:
+    <a class="censor-src" href="https://www.jpost.com/middle-east/iran-news/article-897285" target="_blank" rel="noopener">Jerusalem Post</a>,
+    <a class="censor-src" href="https://www.npr.org/2026/05/28/g-s1-124610/iranians-back-online" target="_blank" rel="noopener">NPR/AP</a>,
+    <a class="censor-src" href="https://www.theguardian.com/world/2026/mar/31/russia-splinter-internet-blackouts-telegram-analysts" target="_blank" rel="noopener">The Guardian</a>,
+    <a class="censor-src" href="https://www.accessnow.org/indefinite-internet-shutdowns" target="_blank" rel="noopener">Access Now</a>.
+  </p>
+</div>
+<!-- ===== End Censorship Event Timeline ===== -->
 
   <!-- ===== Recommendations Section ===== -->
 <section id="recommendations" class="rec-section">
